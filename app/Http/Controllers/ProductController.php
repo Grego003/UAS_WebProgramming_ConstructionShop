@@ -14,17 +14,18 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index($offset = 0, $productShown = 9)
+    public function index($categoryID = '')
     {
-        $products = Products::paginate($productShown)->skip($offset);
+        if ($categoryID == '') {
+            $products = Products::paginate(9);
+        } else {
+            $products = Products::where('categories_id', $categoryID)->paginate(9);
+        }
         $categories = Categories::all();
-        $totalProduct = count(Products::all());
         return view('products.catalog', [
             "products" => $products,
-            "productShown" => $productShown,
-            "totalProduct" => $totalProduct,
-            "offset" => $offset,
             "categories" => $categories,
+            "categoryID" => $categoryID
         ]);
     }
 

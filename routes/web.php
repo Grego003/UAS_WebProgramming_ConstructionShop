@@ -27,8 +27,7 @@ Route::get('/catalog', function () {
     return view('catalog');
 });
 
-//pagination
-Route::get('products/{offset}/{productShown}', 'App\Http\Controllers\ProductController@index');
+Route::get('products/{categoryID}', 'App\Http\Controllers\ProductController@index');
 
 Route::resources([
     'products' => ProductController::class,

@@ -2,43 +2,63 @@
 
 @section('content')
     <div class="container">
-        <div class="pt-5 d-flex justify-content-between">
-            <h2>All Products</h2>
-            <li class="categories list-unstyled mt-2">
-                <ul class="d-flex">
-                    @foreach ($categories as $category)
+        <div class="pt-5 mt-5 d-flex justify-content-between">
+            <h2>
+                @switch($categoryID)
+                    @case(1)
+                        {{ $categories['0']->category_name }}
+                    @break
+
+                    @case(2)
+                        {{ $categories['1']->category_name }}
+                    @break
+
+                    @case(3)
+                        {{ $categories['2']->category_name }}
+                    @break
+
+                    @case(4)
+                        {{ $categories['3']->category_name }}
+                    @break
+
+                    @case(5)
+                        {{ $categories['4']->category_name }}
+                    @break
+
+                    @case(6)
+                        {{ $categories['5']->category_name }}
+                    @break
+
+                    @case(7)
+                        {{ $categories['6']->category_name }}
+                    @break
+
+                    @default
+                        All Products
+                @endswitch
+            </h2>
+            <div>
+                <li class="categories list-unstyled pt-2">
+                    <ul class="d-flex">
                         <li class="category-list list-unstyled me-3">
-                            <a href=#>
-                                <h5>{{ $category->category_name }}</h5>
+                            <a href={{ url('products') . '/' }}>
+                                <p>All</p>
                             </a>
                         </li>
-                    @endforeach
-                </ul>
-            </li>
+                        @foreach ($categories as $category)
+                            <li class="category-list list-unstyled me-3">
+                                <a href='{{ $category->id }}''>
+                                    <p>{{ $category->category_name }}</p>
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </li>
+            </div>
         </div>
         <hr />
-        <div class="btn-group pb-3 justify-content-evenly">
-            <nav class="page nav">
-                <ul class="pagination">
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                    </li>
-                    @for ($i = 9, $x = 1; $i <= $totalProduct + 9; $i += 9, $x++)
-                        <li class="page-item">
-                            <a class="page-link" href={{ url('products/' . ($i - 9) . '/' . $i) }}>{{ $x }}</a>
-                        </li>
-                    @endfor
-                    <li class="page-item">
-                        <a class="page-link" href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </li>
-                </ul>
-            </nav>
+        <div class="d-flex">
+            {{-- {{ $products->links('pagination::bootstrap-4') }} --}}
         </div>
 
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
@@ -54,7 +74,8 @@
                                 content. This content is a little bit longer.</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View Details</button>
+                                    <button type="button" class="btn btn-sm btn-outline-secondary">View
+                                        Details</button>
                                 </div>
                                 <small class="text-muted">Price : </small>
                             </div>
@@ -62,5 +83,9 @@
                     </div>
                 </div>
             @endforeach
+            <div class="d-flex">
+                {{ $products->links('pagination::bootstrap-4') }}
+            </div>
         </div>
-    @endsection
+    </div>
+@endsection
