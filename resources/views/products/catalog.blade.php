@@ -47,7 +47,7 @@
                         </li>
                         @foreach ($categories as $category)
                             <li class="category-list list-unstyled me-3">
-                                <a href='{{ $category->id }}''>
+                                <a href={{ url('products') . '/' . $category->id }}>
                                     <p>{{ $category->category_name }}</p>
                                 </a>
                             </li>

@@ -8,7 +8,16 @@
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
 <!-- Font Awesome CSS -->
-
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
 <!-- Custom CSS -->
 <link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
+<link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+<!-- Libraries CSS -->
+<link href="{{ asset('lib/flaticon/font/flaticon.css') }}" rel="stylesheet"> 
+<link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
+<link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
+<link href="{{ asset('lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
+<link href="{{ asset('lib/slick/slick.css') }}" rel="stylesheet">
+<link href="{{ asset('lib/slick/slick-theme.css') }}" rel="stylesheet">
