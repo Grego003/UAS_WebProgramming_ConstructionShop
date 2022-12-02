@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProductController;
+use App\Models\Products;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,5 +22,16 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('demo');
 });
+
+Route::get('/catalog', function () {
+    return view('catalog');
+});
+
+//pagination
+Route::get('products/{offset}/{productShown}', 'App\Http\Controllers\ProductController@index');
+
+Route::resources([
+    'products' => ProductController::class,
+]);
 
 require __DIR__ . '/auth.php';
