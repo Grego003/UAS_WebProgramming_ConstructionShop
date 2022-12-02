@@ -23,6 +23,10 @@ Route::get('/dashboard', function () {
     return view('demo');
 });
 
+Route::get('/about', function () {
+    return view('about');
+});
+
 Route::get('/catalog', function () {
     return view('catalog');
 });
