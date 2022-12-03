@@ -6,7 +6,7 @@
                 <div class="footer-contact">
                     <h2>Office Contact</h2>
                     <p><i class="fa fa-map-marker-alt"></i>Jl. H. Nawi Raya No.1, RT.1/RW.2, Gandaria Utara, Kec. Cilandak, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12420</p>
-                    <p><i class="fa fa-phone-alt"></i>+012 345 67890</p>
+                    <p><i class="fa fa-phone-alt"></i>089676761828</p>
                     <p><i class="fa fa-envelope"></i>nusakaryautama@company.com</p>
                 </div>
             </div>
@@ -42,8 +42,8 @@
     </div>
     <div class="container footer-menu">
         <div class="f-menu">
-            <a href="">Whatsapp</a>
-            <a href="">Tokopedia</a>
+            <a href="whatsapp://send?text=Halo!&phone=+6289676761828">WhatsApp</a>
+            <a href="https://www.tokopedia.com/rpleeman">Tokopedia</a>
             <a href="">Shopee</a>
         </div>
     </div>
@@ -60,6 +60,4 @@
     </div>
 </div>
 <!-- Footer End -->
-
-<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
 </div>

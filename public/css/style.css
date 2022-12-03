@@ -1,3 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    color: #666666;
+    background: #dddddd;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
 /*******************************/
 /******** PARENT WRAPPER *********/
 /*******************************/
@@ -10,7 +25,7 @@
 }
 
 /*******************************/
-/******** Carousel CSS *********/
+/******** Top Bar CSS *********/
 /*******************************/
 .top-bar {
     position: relative;
@@ -20,27 +35,32 @@
 
 .top-bar .logo {
     padding: 15px 0;
-    text-align: left;
     overflow: hidden;
 }
 
-.top-bar .logo h1 {
-    margin: 0;
-    color: #030f27;
-    font-size: 40px;
-    line-height: 60px;
-    font-weight: 700;
+.top-bar .logo a {
+    display: flex;
+    flex-direction: row;
 }
 
-.top-bar .logo img {
+.top-bar .logo a h1 {
+    color: #030f27;
+    font-size: 30px;
+    line-height: 60px;
+    font-weight: 700;
+    text-decoration: underline solid red;
+}
+
+.top-bar .logo a img {
     max-width: 100%;
     max-height: 60px;
+    margin-right: 1rem;
 }
 
 .top-bar .top-bar-item {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: flex-start;
 }
 
 .top-bar .top-bar-icon {
@@ -188,6 +208,120 @@
         display: none;
     }
 }
+
+/*******************************/
+/******* Page Header CSS *******/
+/*******************************/
+.page-header {
+    position: relative;
+    margin-bottom: 45px;
+    padding: 90px 0;
+    text-align: center;
+    background: #fdbe33;
+}
+
+.page-header h2 {
+    position: relative;
+    color: #030f27;
+    font-size: 60px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 5px;
+}
+
+.page-header h2::after {
+    position: absolute;
+    content: "";
+    width: 100px;
+    height: 2px;
+    left: calc(50% - 50px);
+    bottom: 0;
+    background: #030f27;
+}
+
+.page-header a {
+    position: relative;
+    padding: 0 12px;
+    font-size: 22px;
+    color: #030f27;
+}
+
+.page-header a:hover {
+    color: #ffffff;
+}
+
+.page-header a::after {
+    position: absolute;
+    content: "/";
+    width: 8px;
+    height: 8px;
+    top: -2px;
+    right: -7px;
+    text-align: center;
+    color: #121518;
+}
+
+.page-header a:last-child::after {
+    display: none;
+}
+
+@media (max-width: 991.98px) {
+    .page-header {
+        padding: 60px 0;
+    }
+    
+    .page-header h2 {
+        font-size: 45px;
+    }
+    
+    .page-header a {
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .page-header {
+        padding: 45px 0;
+    }
+    
+    .page-header h2 {
+        font-size: 35px;
+    }
+    
+    .page-header a {
+        font-size: 18px;
+    }
+}
+
+/*******************************/
+/******* Section Header ********/
+/*******************************/
+.section-header {
+    position: relative;
+    width: 100%;
+    margin-bottom: 45px;
+}
+
+.section-header p {
+    color: #fdbe33;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+.section-header h2 {
+    margin: 0;
+    position: relative;
+    font-size: 50px;
+    font-weight: 700;
+}
+
+@media (max-width: 767.98px) {
+    .section-header h2 {
+        font-size: 30px;
+    }
+}
+
 
 /*******************************/
 /******** Carousel CSS *********/
@@ -419,6 +553,18 @@
     margin-bottom: 30px;
 }
 
+.about .section-header h2 {
+    color: black;
+    font-size: 3rem;
+    font-weight: 700;
+}
+
+.about .section-header p {
+    color: #fdbe33;
+    font-weight: 700;
+    font-size: 20px;
+}
+
 .about .about-img {
     position: relative;
     height: 100%;
@@ -457,6 +603,120 @@
         margin-bottom: 30px;
         height: auto;
     }
+}
+
+/*******************************/
+/*********** Blog CSS **********/
+/*******************************/
+.blog {
+    position: relative;
+    width: 100%;
+    padding: 45px 0 15px 0;
+}
+
+.blog .blog-item {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.blog .blog-img {
+    position: relative;
+    overflow: hidden;
+}
+
+.blog .blog-img img {
+    width: 100%;
+}
+
+.blog .blog-title {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    background: #030f27;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.blog .blog-title h3 {
+    margin: 0;
+    padding: 0 15px 0 25px;
+    width: calc(100% - 60px);
+    font-size: 15px;
+    font-weight: 700;
+    color: #fdbe33;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.blog .blog-title a.code {
+    padding: 4px 12px 4px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    font-weight: 700;
+    color: #030f27;
+    background: #fdbe33;
+    border-radius: 0;
+    transition: .3s;
+    text-decoration: none;
+}
+
+.blog .blog-item:hover a.btn {
+    color: #ffffff;
+}
+
+.blog .blog-text {
+    padding: 10px 25px 25px 25px;
+    background: #f3f6ff;
+}
+
+.blog .blog-text p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.blog .pagination .page-link {
+    color: #030f27;
+    border-radius: 0;
+    border-color: #fdbe33;
+}
+
+.blog .pagination .page-link:hover,
+.blog .pagination .page-item.active .page-link {
+    color: #fdbe33;
+    background: #030f27;
+}
+
+.blog .pagination .disabled .page-link {
+    color: #999999;
+}
+
+.category-list a {
+    text-decoration: none;
+    color: #030f27;
+    font-size: 1rem;
+}
+
+.category-list {
+    margin: 0rem 1.5rem;
+    padding: 8px;
+    padding-top: 20px;
+}
+
+.category-list:hover {
+    background-color: #fdbe33;
+    border-radius: 10px;
+}
+
+.categories h2 {
+    font-size: 2.5rem;
+    color: #030f27;
 }
 
 /*******************************/

@@ -1,9 +1,11 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container">
-        <div class="pt-5 mt-5 d-flex justify-content-between">
-            <h2>
+@include('layouts.partials.page-header', ['page' => 'Catalog'])
+
+    <div class="categories container justify-content-center">
+        <div class="pt-5 mt-5 d-flex flex-column justify-content-center">
+            <h2 class="text-center my-2">
                 @switch($categoryID)
                     @case(1)
                         {{ $categories['0']->category_name }}
@@ -37,8 +39,8 @@
                         All Products
                 @endswitch
             </h2>
-            <div>
-                <li class="categories list-unstyled pt-2">
+            <div class="d-flex justify-content-center">
+                <li class="text-center categories list-unstyled pt-2">
                     <ul class="d-flex">
                         <li class="category-list list-unstyled me-3">
                             <a href={{ url('products') . '/' }}>
@@ -46,7 +48,7 @@
                             </a>
                         </li>
                         @foreach ($categories as $category)
-                            <li class="category-list list-unstyled me-3">
+                            <li class="text-center category-list list-unstyled me-3">
                                 <a href={{ url('products') . '/' . $category->id }}>
                                     <p>{{ $category->category_name }}</p>
                                 </a>
@@ -57,35 +59,35 @@
             </div>
         </div>
         <hr />
-        <div class="d-flex">
-            {{-- {{ $products->links('pagination::bootstrap-4') }} --}}
-        </div>
 
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+<div class="blog">
+    <div class="container">
+        <div class="row blog-page">
             @foreach ($products as $product)
-                <div class="col">
-                    <div class="product card shadow-sm">
-                        <img src="https://pixabay.com/get/gc60f369d1b53616468afb32bcbbde217cb6a87209eec664c8577e8fd1c7cc9340012bf967f375da44f2713df8fdd1ea4350d88773b8bf2b2a5c0b11f0746bedd_640.jpg"
-                            alt="" srcset="">
-                        <div class="card-body">
-                            <h5 class="card-title"> {{ $product->product_name }} --> {{ $product->product_code }}</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional
-                                content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View
-                                        Details</button>
-                                </div>
-                                <small class="text-muted">Price : </small>
-                            </div>
-                        </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="blog-item">
+                    <div class="blog-img">
+                        <img src="https://thumbs.dreamstime.com/b/construction-crane-27702754.jpg" alt="Image">
+                    </div>
+                    <div class="blog-title">
+                        <h3>{{ $product->product_name }}</h3>
+                        <a class="code" href="">{{ $product->product_code }}</a>
+                    </div>
+                    <div class="blog-text">
+                        <p>
+                            This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+                        </p>
                     </div>
                 </div>
-            @endforeach
-            <div class="d-flex">
-                {{ $products->links('pagination::bootstrap-4') }}
             </div>
+        @endforeach
+        <div class="d-flex">
+            {{ $products->links('pagination::bootstrap-4') }}
         </div>
     </div>
+    </div>
+</div>
+<!-- Blog End -->
+
 @endsection
