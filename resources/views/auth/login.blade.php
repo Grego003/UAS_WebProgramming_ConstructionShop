@@ -18,7 +18,7 @@
                 <x-label for="email" :value="__('Email')" />
 
                 <x-input id="email" class="" type="email" name="email" :value="old('email')" required autofocus />
-                
+              
             </div>
 
             <!-- Password -->

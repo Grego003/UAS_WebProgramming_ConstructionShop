@@ -52,7 +52,7 @@
             <div class="col-md-6">
                 <p>&copy; <a href="#">Nusa Karya Utama</a>, All Right Reserved.</p>
             </div>
-            
+
             <div class="col-md-6">
                 <p>Developed By <a href="https://github.com/Grego003/UAS_WebProgramming_ConstructionShop">Kelompok 3</a></p>
             </div>
