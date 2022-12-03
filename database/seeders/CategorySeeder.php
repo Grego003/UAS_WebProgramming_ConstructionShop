@@ -4,7 +4,7 @@ namespace Database\Seeders;
 
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
-use App\Models\Categories;
+use App\Models\Category;
 use DateTime;
 
 class CategorySeeder extends Seeder
@@ -16,47 +16,25 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Categories::truncate();
+        Category::truncate();
         $created_date = '2022-12-01 02:53:26';
 
         $categories_data = [
             [
-                'category_name' => "Kusen",
-                'created_at' =>  $created_date,
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'category_name' => "Aluminium"
             ],
             [
-                'category_name' => "Jendela Casement",
-                'created_at' =>  $created_date,
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'category_name' => "Kaca"
             ],
             [
-                'category_name' => "Jendela Sliding",
-                'created_at' =>  $created_date,
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'category_name' => "Stainless"
             ],
             [
-                'category_name' => "Pintu Sliding",
-                'created_at' =>  $created_date,
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ],
-            [
-                'category_name' => "Pintu Lipat",
-                'created_at' =>  $created_date,
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ],
-            [
-                'category_name' => "Pintu Swing",
-                'created_at' =>  $created_date,
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
-            ],
-            [
-                'category_name' => "Stopper Pintu",
-                'created_at' =>  $created_date,
-                'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
+                'category_name' => "Aksesoris"
             ]
+
         ];
 
-        Categories::insert($categories_data);
+        Category::insert($categories_data);
     }
 }

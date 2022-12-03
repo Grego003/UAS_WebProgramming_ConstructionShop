@@ -101,7 +101,6 @@
                             @endauth
                         </div>
                     @endif
-
                 </div>
             </nav>
         </div>
