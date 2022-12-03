@@ -3,7 +3,6 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-use Ramsey\Uuid\Type\Integer;
 
 class CreateProductsTable extends Migration
 {
@@ -15,15 +14,18 @@ class CreateProductsTable extends Migration
     public function up()
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->string('product_code', 5);
-            $table->string('categories_id');
-            $table->string('product_name', 50);
-            $table->smallInteger('length')->default(6);
-            $table->string('link_tokopedia', 350)->nullable();
-            $table->string('link_shopee', 350)->nullable();
-            $table->string('src_img', 150)->nullable();
+            $table->id();
+            $table->string('product_name', 50)->nullable();
+            $table->string('code')->nullable();
+            $table->string('sub_category_id')->nullable();
+            $table->integer('length')->nullable();
+            $table->text('link_tokopedia')->nullable();
+            $table->text('link_shopee')->nullable();
+            $table->text('src_img')->nullable();
+            $table->integer('category_id');
+            $table->integer('stock')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
-            $table->primary(['product_code', 'categories_id']);
         });
     }
 

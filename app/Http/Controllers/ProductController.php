@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Categories;
-use App\Models\Products;
+use App\Models\Category;
+use App\Models\Product;
+use App\Models\SubCategory;
+use App\Models\Color;
 use Illuminate\Http\Request;
 use PHPUnit\Framework\Constraint\Count;
 
@@ -17,15 +19,44 @@ class ProductController extends Controller
     public function index($categoryID = '')
     {
         if ($categoryID == '') {
-            $products = Products::paginate(9);
+            $products = Product::paginate(9);
         } else {
-            $products = Products::where('categories_id', $categoryID)->paginate(9);
+            $products = Product::where('category_id', $categoryID)->paginate(9);
         }
-        $categories = Categories::all();
+        $categories = Category::all();
+        $subCategories = SubCategory::all();
+        $colors = Color::all();
+        $subCategoryID = "";
+
         return view('products.catalog', [
             "products" => $products,
             "categories" => $categories,
-            "categoryID" => $categoryID
+            "categoryID" => $categoryID,
+            "subCategories" => $subCategories,
+            "subCategoryID" => $subCategoryID,
+            "colors" => $colors
+        ]);
+    }
+
+    public function index_sub($subCategoryID = '')
+    {
+        if ($subCategoryID == '') {
+            $products = Product::paginate(9);
+        } else {
+            $products = Product::where('sub_category_id', $subCategoryID)->paginate(9);
+        }
+        $categories = Category::all();
+        $subCategories = SubCategory::all();
+        $colors = Color::all();
+        $categoryID = "";
+
+        return view('products.catalog', [
+            "products" => $products,
+            "categories" => $categories,
+            "subCategoryID" => $subCategoryID,
+            "categoryID" => $categoryID,
+            "subCategories" => $subCategories,
+            "colors" => $colors
         ]);
     }
 
@@ -53,10 +84,10 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\products  $products
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(products $products)
+    public function show($id)
     {
         //
     }
@@ -64,10 +95,10 @@ class ProductController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\products  $products
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(products $products)
+    public function edit($id)
     {
         //
     }
@@ -76,10 +107,10 @@ class ProductController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\products  $products
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, products $products)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -87,10 +118,10 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\products  $products
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(products $products)
+    public function destroy($id)
     {
         //
     }

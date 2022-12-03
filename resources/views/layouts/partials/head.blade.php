@@ -15,9 +15,13 @@
 
 <!-- Custom CSS -->
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{{-- @include('sweetalert::alert')
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
+    crossorigin="anonymous"></script>
 
 <!-- Libraries CSS -->
-<link href="{{ asset('lib/flaticon/font/flaticon.css') }}" rel="stylesheet"> 
+<link href="{{ asset('lib/flaticon/font/flaticon.css') }}" rel="stylesheet">
 <link href="{{ asset('lib/animate/animate.min.css') }}" rel="stylesheet">
 <link href="{{ asset('lib/owlcarousel/assets/owl.carousel.min.css') }}" rel="stylesheet">
 <link href="{{ asset('lib/lightbox/css/lightbox.min.css') }}" rel="stylesheet">
