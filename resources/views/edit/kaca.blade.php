@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6">
-                <img src="{{ Storage::url($product->img) }}" class="rounded mx-auto d-block" height="100%" width="100%">
+                <img src="{{ Storage::url($product->src_img) }}" class="rounded mx-auto d-block" height="100%" width="100%">
             </div>
             <div class="col-lg-6 d-flex align-items-center">
                 <form action="/stores/{{ $product->id }}" method="post" enctype="multipart/form-data">

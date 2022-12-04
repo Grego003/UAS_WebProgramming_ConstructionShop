@@ -43,6 +43,16 @@
                             </div>
                         @enderror
                     </div>
+                    <div class="row mb-3 justify-content-around ms-2">
+                        @foreach ($colors as $color)
+                            <div class="form-check col-3">
+                                <input class="form-check-input" type="checkbox" name="color[]" {{ in_array($color->id, $mycolor) ? 'checked' : '' }} value="{{ $color->id }}" id="flexCheckDefault">
+                                <label class="form-check-label" for="flexCheckDefault">
+                                  {{ $color->color_name }}
+                                </label>
+                              </div>
+                        @endforeach
+                    </div>
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="inputGroupSelect01">Options</label>
                         <select class="form-select" id="inputGroupSelect01" name="sub_category"

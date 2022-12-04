@@ -20,7 +20,8 @@
                                 </div>
                                 <div class="top-bar-text">
                                     <h3>Opening Hour</h3>
-                                    <p>Mon - Sun, 06:00 - 17:00</p>
+                                    <p>Mon - Fri, 08:30 - 17:00</p>
+                                    <p>Sat, 08:30 - 15:00</p>
                                 </div>
                             </div>
                         </div>
@@ -64,9 +65,9 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
                     <div class="navbar-nav mr-auto">
-                        <a href={{ url('dashboard') }} class="nav-item nav-link active" aria-current="page">Home</a>
+                        <a href={{ url('dashboard') }} class="nav-item nav-link" aria-current="page">Home</a>
                         <a href={{ url('about') }} class="nav-item nav-link">About</a>
-                        <a href={{ url('products') }} class="nav-item nav-link">Catalog</a>
+                        <a href={{ url('stores') }} class="nav-item nav-link">Catalog</a>
                         <a href="#" class="nav-item nav-link">Aluminium</a>
                         <a href="#" class="nav-item nav-link">Kaca</a>
                         <a href="#" class="nav-item nav-link">Stainless</a>
@@ -81,6 +82,9 @@
                               <a class="dropdown-item" href="#">Bracket</a>
                             </div>
                           </div>
+                        @can('only_admin')
+                          <a href={{ route('stores.create') }} class="nav-item nav-link btn btn-danger border-0 text-light rounded mx-3">Admin</a>
+                        @endcan
                     </div>
 
                     @if (Route::has('login'))
@@ -88,7 +92,7 @@
                             @auth
                                 <form action="logout" method="POST" class="ms-auto">
                                     @csrf
-                                    <button type="submit" class="btn btn-warning">Logout</button>
+                                    <button type="submit" class="btn btn-info text-dark rounded border-0">Logout</button>
                                 </form>
                             @else
                                 <a href="{{ route('login') }}"

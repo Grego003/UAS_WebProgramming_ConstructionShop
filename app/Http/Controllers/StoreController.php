@@ -4,9 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Color;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 
 class StoreController extends Controller
 {
@@ -15,14 +18,49 @@ class StoreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($categoryID = 1)
     {
-        $products = Product::all();
+        if ($categoryID == '') {
+            $products = Product::paginate(9);
+        } else {
+            $products = Product::where('category_id', $categoryID)->paginate(9);
+        }
         $categories = Category::all();
-        $subCategory = SubCategory::all();
-        return view('store.index', ['products' => $products, 'categories' => $categories, 'subCategory' => $subCategory]);
+        $subCategories = SubCategory::all();
+        $colors = Color::all();
+        $subCategoryID = "";
+
+        return view('products.catalog', [
+            "products" => $products,
+            "categories" => $categories,
+            "categoryID" => $categoryID,
+            "subCategories" => $subCategories,
+            "subCategoryID" => $subCategoryID,
+            "colors" => $colors
+        ]);
     }
 
+    public function index_sub($subCategoryID = '')
+    {
+        if ($subCategoryID == '') {
+            $products = Product::paginate(9);
+        } else {
+            $products = Product::where('sub_category_id', $subCategoryID)->paginate(9);
+        }
+        $categories = Category::all();
+        $subCategories = SubCategory::all();
+        $colors = Color::all();
+        $categoryID = "";
+
+        return view('products.catalog', [
+            "products" => $products,
+            "categories" => $categories,
+            "subCategoryID" => $subCategoryID,
+            "categoryID" => $categoryID,
+            "subCategories" => $subCategories,
+            "colors" => $colors
+        ]);
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -30,8 +68,12 @@ class StoreController extends Controller
      */
     public function create()
     {
+        if (!Gate::allows('only_admin')) {
+            abort(403);
+        }
         $subCategory = SubCategory::all();
-        return view('store.create', ['subCategory' => $subCategory]);
+        $colors = Color::all();
+        return view('store.create', ['subCategory' => $subCategory, 'colors' => $colors]);
     }
 
     /**
@@ -42,6 +84,9 @@ class StoreController extends Controller
      */
     public function store(Request $request)
     {
+        if (!Gate::allows('only_admin')) {
+            abort(403);
+        }
         if ($request->category_id == 1) {
             $this->validate($request, [
                 'product_name' => 'required|max:255',
@@ -56,11 +101,13 @@ class StoreController extends Controller
             $product->code = $request->code;
             $product->category_id = $request->category_id;
             $product->length = $request->length;
-            $product->subcategory_id = $request->sub_category;
-            $path = $request->file('img')->storePublicly('images', 'public');
-            $product->img = $path;
+            $product->sub_category_id = $request->sub_category;
+            if ($request->img) {
+                $path = $request->file('img')->storePublicly('images', 'public');
+                $product->src_img = $path;
+            }
             $product->save();
-            $product->color()->attach([1, 2, 3, 4]);
+            $product->color()->attach($request->color);
         } else if ($request->category_id == 2) {
             $this->validate($request, [
                 'img' => 'required|image|file|max:1024',
@@ -69,7 +116,7 @@ class StoreController extends Controller
             $product = new Product();
             $product->category_id = $request->category_id;
             $path = $request->file('img')->storePublicly('images', 'public');
-            $product->img = $path;
+            $product->src_img = $path;
             $product->save();
         } else if ($request->category_id == 3) {
             $this->validate($request, [
@@ -80,8 +127,10 @@ class StoreController extends Controller
             $product = new Product();
             $product->product_name = $request->product_name;
             $product->category_id = $request->category_id;
-            $path = $request->file('img')->storePublicly('images', 'public');
-            $product->img = $path;
+            if ($request->img) {
+                $path = $request->file('img')->storePublicly('images', 'public');
+                $product->src_img = $path;
+            }
             $product->save();
         } else if ($request->category_id == 4) {
             $this->validate($request, [
@@ -94,10 +143,14 @@ class StoreController extends Controller
             $product = new Product();
             $product->product_name = $request->product_name;
             $product->category_id = $request->category_id;
-            $path = $request->file('img')->storePublicly('images', 'public');
-            $product->img = $path;
+            if ($request->img) {
+                $path = $request->file('img')->storePublicly('images', 'public');
+                $product->src_img = $path;
+            }
             $product->description = $request->description;
-            $product->link_shoope = $request->link_shoope;
+            $product->stock = $request->stock;
+            $product->harga = $request->harga;
+            $product->link_shopee = $request->link_shoope;
             $product->link_tokopedia = $request->link_tokopedia;
             $product->save();
         } else {
@@ -126,11 +179,21 @@ class StoreController extends Controller
      */
     public function edit($id)
     {
+        if (!Gate::allows('only_admin')) {
+            abort(403);
+        }
         $product = Product::findOrFail($id);
+        $mycolor = [];
+        $i = 0;
+        foreach ($product->color as $col) {
+            $mycolor[$i] = $col->id;
+            $i++;
+        }
 
         if ($product->category_id == 1) {
             $subCategory = SubCategory::all();
-            return view('edit.aluminium', ['product' => $product, 'subCategory' => $subCategory]);
+            $colors = Color::all();
+            return view('edit.aluminium', ['product' => $product, 'subCategory' => $subCategory, 'colors' => $colors, 'mycolor' => $mycolor]);
         } else if ($product->category_id == 2) {
             return view('edit.kaca', ['product' => $product]);
         } else if ($product->category_id == 3) {
@@ -149,6 +212,9 @@ class StoreController extends Controller
      */
     public function update(Request $request, $id)
     {
+        if (!Gate::allows('only_admin')) {
+            abort(403);
+        }
         if ($request->category_id == 1) {
             $this->validate($request, [
                 'product_name' => 'required|max:255',
@@ -163,14 +229,15 @@ class StoreController extends Controller
             $product->code = $request->code;
             $product->category_id = $request->category_id;
             $product->length = $request->length;
-            $product->subcategory_id = $request->sub_category;
+            $product->sub_category_id = $request->sub_category;
             if ($request->img) {
                 $path = $request->file('img')->storePublicly('images', 'public');
-                $product->img = $path;
+                $product->src_img = $path;
             }
             $product->save();
             Alert::success('Success', 'Product Edited Successfully');
-            // $product->color()->attach([1, 2, 3, 4]);
+            $product->color()->detach([1, 2, 3, 4]);
+            $product->color()->attach($request->color);
         } else if ($request->category_id == 2) {
             $this->validate($request, [
                 'img' => 'required|image|file|max:1024',
@@ -180,7 +247,7 @@ class StoreController extends Controller
             $product->category_id = $request->category_id;
             if ($request->img) {
                 $path = $request->file('img')->storePublicly('images', 'public');
-                $product->img = $path;
+                $product->src_img = $path;
             }
             $product->save();
             Alert::success('Success', 'Product Edited Successfully');
@@ -195,7 +262,7 @@ class StoreController extends Controller
             $product->category_id = $request->category_id;
             if ($request->img) {
                 $path = $request->file('img')->storePublicly('images', 'public');
-                $product->img = $path;
+                $product->src_img = $path;
             }
             $product->save();
             Alert::success('Success', 'Product Edited Successfully');
@@ -212,10 +279,12 @@ class StoreController extends Controller
             $product->category_id = $request->category_id;
             if ($request->img) {
                 $path = $request->file('img')->storePublicly('images', 'public');
-                $product->img = $path;
+                $product->src_img = $path;
             }
             $product->description = $request->description;
-            $product->link_shoope = $request->link_shoope;
+            $product->stock = $request->stock;
+            $product->harga = $request->harga;
+            $product->link_link_shopee = $request->link_shoope;
             $product->link_tokopedia = $request->link_tokopedia;
             $product->save();
             Alert::success('Success', 'Product Edited Successfully');
@@ -233,6 +302,9 @@ class StoreController extends Controller
      */
     public function destroy($id)
     {
+        if (!Gate::allows('only_admin')) {
+            abort(403);
+        }
         $product = Product::findOrFail($id);
         $product->delete();
         return redirect()->back();

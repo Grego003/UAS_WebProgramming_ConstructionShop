@@ -5,7 +5,7 @@
         <input type="hidden" name="category_id" value="4">
         <div class="mb-3">
             <label for="product_name" class="form-label">Nama Produk</label>
-            <input type="text" class="form-control @error('product_name') is-invalid @enderror" id="product_name" placeholder="Nama Produk" name="product_name"  value="{{ old('product_name') }}" required>
+            <input type="text" class="form-control @error('product_name') is-invalid @enderror" id="product_name"  name="product_name"  value="{{ old('product_name') }}" required>
             @error('product_name')
                 <div  class="invalid-feedback">
                     {{ $message }}
@@ -29,6 +29,29 @@
                     {{ $message }}
                 </div>
             @enderror
+        </div>
+        <div class="row mb-2">
+            <div class="col-6">
+                <label for="basic-url" class="form-label">Harga</label>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon3">Rp.</span>
+                    <input type="number" class="form-control @error('stock') is-invalid @enderror" id="basic-url" name="harga" aria-describedby="basic-addon3" value="{{ old('harga') }}">
+                    @error('harga')
+                        <div  class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+            </div>
+            <div class="col-6">
+                <label for="stock" class="form-label">Stock</label>
+                <input type="number" class="form-control @error('stock') is-invalid @enderror" id="stock" name="stock"  value="{{ old('stock') }}">    
+                @error('stock')
+                    <div  class="invalid-feedback">
+                         {{ $message }}
+                    </div>
+                @enderror
+            </div>
         </div>
         <div class="row justify-content-between">
             <div class="col-md-6">

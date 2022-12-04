@@ -3,6 +3,9 @@
 @section('content')
 @include('layouts.partials.page-header', ['page' => 'Catalog'])
 
+    @if ($products->isEmpty())
+        <h2 class="text-center">Barang Sedang Kosong</h2>
+    @endif
     <div class="categories container justify-content-center">
         <div class="mt-5 d-flex flex-column justify-content-center">
             <h2 class="text-center my-2 mx-auto">
@@ -91,22 +94,17 @@
                     <h4 class="mt-2">Kategori</h4>
                     <hr>
                     <ul class="d-flex">
-                        <li class="category-list list-unstyled me-3">
-                            <a href={{ url('products') . '/' }}>
-                                <p>All</p>
-                            </a>
-                        </li>
                         @foreach ($categories as $category)
                         <li class="text-center category-list list-unstyled me-3">
                                 <a href={{ url('products') . '/' . $category->id }}>
                                     <p>{{ $category->category_name }}</p>
                                 </a>
-                            </li>
+                        </li>
                         @endforeach
                     </ul>
                 </li>
             </div>
-
+            @if ($categoryID == 1)               
             <div class="d-flex justify-content-center">
                 <li class="text-center categories list-unstyled">
                     <h4>Produk / Sub-Kategori</h4>
@@ -122,6 +120,7 @@
                     </ul>
                 </li>
             </div>
+            @endif
         </div>
     </div>
 
@@ -129,35 +128,12 @@
             <div class="container">
                 <div class="row catalog-page">
                     @foreach ($products as $product)
-                    <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                        <div class="catalog-item">
-                            <div class="catalog-img">
-                                <img src="{{ $product->src_img }}" alt="{{ $product->src_img }}">
-                                <div class="catalog-overlay">
-                                    <p> {{ $product->description }}</p>
-                                </div>
-                            </div>
-                            <div class="catalog-title">
-                                <h3>{{ $product->product_name }}</h3>
-                                <a class="code" href="">{{ $product->code }}</a>
-                            </div>
-                            <div class="catalog-text">
-                                <h5>Available Material/Colors</h5>
-                                @foreach ($colors as $color)
-                                    <button
-                                        class="btn btn btn-circle btn-circle-sm me-1">{{ $color->color_name }}
-                                    </button>
-                                    @endforeach
-                            </div>
-                                <div class="catalog-footer">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <small class="text">Price : </small>
-                                        <small class="text">Stock : {{ $product->stock }} </small>
-                                    </div>
-                                </div>
-                        </div>
-                    </div>
-                @endforeach
+                        @if ($categoryID == 2)
+                            @include('cards.kacaCard')
+                        @else
+                            @include('cards.mainCard')
+                        @endif
+                    @endforeach
             </div>
 
         <div class="d-flex">
@@ -166,5 +142,27 @@
     </div>
 </div>
 <!-- Blog End -->
-
 @endsection
+
+<script>
+    function confirmDelete(ev){
+        ev.preventDefault();
+        var submit = ev.currentTarget.getAttribute('data-id');
+        console.log(submit);
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                swal("Poof! Your imaginary file has been deleted!", {
+                icon: "success",
+                });
+                document.getElementById(submit).submit();
+            } 
+        });
+    }
+</script>

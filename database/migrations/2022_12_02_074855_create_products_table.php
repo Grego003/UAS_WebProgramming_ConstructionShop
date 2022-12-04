@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->text('src_img')->nullable();
             $table->integer('category_id');
             $table->integer('stock')->nullable();
+            $table->float('harga')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });

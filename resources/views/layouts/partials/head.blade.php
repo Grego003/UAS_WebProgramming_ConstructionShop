@@ -11,14 +11,15 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
 <!-- Font Awesome CSS -->
+
+{{-- javascript --}}
+@include('sweetalert::alert')
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
 <!-- Custom CSS -->
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-{{-- @include('sweetalert::alert')
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
-<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-    crossorigin="anonymous"></script>
 
 <!-- Libraries CSS -->
 <link href="{{ asset('lib/flaticon/font/flaticon.css') }}" rel="stylesheet">

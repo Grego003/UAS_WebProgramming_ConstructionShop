@@ -15,7 +15,7 @@
                 <div class="carousel-caption">
                     <p class="animated fadeInRight">40 tahun pengalaman di</p>
                     <h1 class="animated fadeInLeft">Bidang Konstruksi</h1>
-                    <a class="btn animated fadeInUp" href="{{ url('contact') }}">Kontak Kami</a>
+                    <a class="btn animated fadeInUp" href="{{ url('stores') }}">Produk Kami</a>
                 </div>
             </div>
 
@@ -24,7 +24,7 @@
                 <div class="carousel-caption">
                     <p class="animated fadeInRight">Menyediakan banyak ragam alat konstruksi</p>
                     <h1 class="animated fadeInLeft">Kami bersedia melayani anda</h1>
-                    <a class="btn animated fadeInUp" href="{{ url('contact') }}">Kontak Kami</a>
+                    <a class="btn animated fadeInUp" href="{{ url('stores') }}">Produk Kami</a>
                 </div>
             </div>
 
@@ -33,7 +33,7 @@
                 <div class="carousel-caption">
                     <p class="animated fadeInRight">Kami dipercaya oleh banyak sekali pelanggan</p>
                     <h1 class="animated fadeInLeft">Tidak perlu ragu. Langsung saja kontak kami</h1>
-                    <a class="btn animated fadeInUp" href="{{ url('contact') }}">Kontak Kami</a>
+                    <a class="btn animated fadeInUp" href="{{ url('stores') }}">Produk Kami</a>
                 </div>
             </div>
         </div>
@@ -197,7 +197,67 @@
         </div>
     </div>
 </div>
+
 <!-- FAQs End -->
+
+  <!-- Fact Start -->
+  <div class="fact">
+    <div class="container-fluid">
+        <div class="row counters">
+            <div class="col-md-6 fact-left wow slideInLeft">
+                <div class="row">
+                    <div class="fact-content col-6">
+                        <div class="fact-icon">
+                            <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/null/external-construction-emergency-service-flaticons-lineal-color-flat-icons.png"/>
+                        </div>
+                        <div class="fact-text">
+                            <p>Pekerja Profesional</p>
+                        </div>
+                    </div>
+                    <div class="fact-content col-6">
+                        <div class="fact-icon">
+                            <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/null/external-materials-tools-and-material-ecommerce-flaticons-lineal-color-flat-icons-3.png"/>
+                        </div>
+                        <div class="fact-text">
+                            <p>Bahan Berkualitas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 fact-right wow slideInRight">
+                <div class="row">
+                    <div class="fact-content col-6">
+                        <div class="fact-icon">
+                            <img src="https://img.icons8.com/ultraviolet/40/null/money--v1.png"/>                        </div>
+                        <div class="fact-text">
+                            <p>Harga Terjangkau</p>
+                        </div>
+                    </div>
+                    <div class="fact-content col-6">
+                        <div class="fact-icon">
+                            <img src="https://img.icons8.com/doodle/48/null/maintenance.png"/>
+                        </div>
+                        <div class="fact-text">
+                            <p>Instalasi Cepat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fact End -->
+
+<!-- Location Start -->
+<div class="location d-flex flex-column justify-content-center">
+    <div class="section-header text-center mt-5">
+        <h2 class="mb-2">Lokasi Kami</h2>
+        <p>Jangan ragu untuk menghubungi kontak kami untuk mendapatkan informasi lebih detail mengenai jasa yang kami berikan. <br> Anda juga dapat langsung mendatangi lokasi kami berikut ini</p>
+    </div>
+
+    <div class="mapouter mx-auto"><div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=800&amp;height=400&amp;hl=en&amp;q=Jl. H. Nawi Raya No.1, RT.1/RW.2&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://formatjson.org/word-counter">Word Counter</a></div><style>.mapouter{position:relative;text-align:right;width:800px;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:800px;height:400px;}.gmap_iframe {width:800px!important;height:400px!important;}</style></div>
+</div>
+<!-- Location End-->
 
 </div><!-- /.container -->
 
