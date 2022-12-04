@@ -9,9 +9,10 @@
 
 <!-- Font Awesome CSS -->
 
-
 <!-- Custom CSS -->
 <link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
+
+{{-- javascript --}}
 @include('sweetalert::alert')
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
