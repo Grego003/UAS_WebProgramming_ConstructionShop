@@ -17,13 +17,14 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('product_name', 50)->nullable();
             $table->string('code')->nullable();
-            $table->string('subcategory_id')->nullable();
+            $table->string('sub_category_id')->nullable();
             $table->integer('length')->nullable();
             $table->text('link_tokopedia')->nullable();
-            $table->text('link_shoope')->nullable();
-            $table->text('img')->nullable();
+            $table->text('link_shopee')->nullable();
+            $table->text('src_img')->nullable();
             $table->integer('category_id');
             $table->integer('stock')->nullable();
+            $table->float('harga')->nullable();
             $table->text('description')->nullable();
             $table->timestamps();
         });
