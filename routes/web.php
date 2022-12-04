@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\StoreController;
 use App\Models\Product;
+use App\Http\Controllers\ProductController;
+use App\Models\Products;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,5 +35,20 @@ Route::get('/dashboard', function () {
 });
 
 Route::resource('stores', StoreController::class);
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+Route::get('/catalog', function () {
+    return view('catalog');
+});
+
+// Route::get('products/{categoryID}', 'App\Http\Controllers\ProductController@index');
+
+// Route::resources([
+//     'products' => ProductController::class,
+// ]);
+
 
 require __DIR__ . '/auth.php';

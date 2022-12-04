@@ -1,121 +1,87 @@
 @extends('layouts.main')
 
 @section('content')
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class=""
-                aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active"
-                aria-current="true"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"
-                class=""></button>
-        </div>
+<div class="wrapper">
+    <!-- Carousel Start -->
+    <div id="carousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carousel" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel" data-slide-to="1"></li>
+            <li data-target="#carousel" data-slide-to="2"></li>
+        </ol>
+        <!-- Carouselnya masih rusak helpp -->
         <div class="carousel-inner">
-            <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="#777"></rect>
-                </svg>
-
-                <div class="container">
-                    <div class="carousel-caption text-start">
-                        <h1>Example headline.</h1>
-                        <p>Some representative placeholder content for the first slide of the carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-                    </div>
-                </div>
-            </div>
             <div class="carousel-item active">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="#777"></rect>
-                </svg>
+                <img src="{{ asset('images/construction_assets/Kaca/ShowerBoxKacaPT10mmRekSledingAtas.jpeg') }}" alt="Carousel Image">
+                <div class="carousel-caption">
+                    <p class="animated fadeInRight">40 tahun pengalaman</p>
+                    <h1 class="animated fadeInLeft">Bidang Konstruksi</h1>
+                    <a class="btn animated fadeInUp" href="#">Get A Quote</a>
+                </div>
+            </div>
 
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Another example headline.</h1>
-                        <p>Some representative placeholder content for the second slide of the carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
+            <div class="carousel-item">
+                <img src="{{ asset('images/construction_assets/Kaca/Kaca Canopi PT8mm.jpeg') }}" alt="Carousel Image">
+                <div class="carousel-caption">
+                    <p class="animated fadeInRight">Menyediakan banyak ragam alat konstruksi</p>
+                    <h1 class="animated fadeInLeft">Kami bersedia melayani anda</h1>
+                    <a class="btn animated fadeInUp" href="#">Get A Quote</a>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="img/carousel-3.jpg" alt="Carousel Image">
+                <div class="carousel-caption">
+                    <p class="animated fadeInRight">Kami dipercaya oleh banyak sekali pelanggan</p>
+                    <h1 class="animated fadeInLeft">Tidak perlu ragu. Langsung saja kontak kami</h1>
+                    <a class="btn animated fadeInUp" href="#">Get A Quote</a>
+                </div>
+            </div>
+        </div>
+
+        <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+    <!-- Carousel End -->
+
+<!-- Feature Start-->
+<div class="feature wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-4 col-md-12">
+                <div class="feature-item">
+                    <div class="feature-text">
+                        <h3>Aluminium</h3>
+                        <p>Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non</p>
                     </div>
                 </div>
             </div>
-            <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="#777"></rect>
-                </svg>
-
-                <div class="container">
-                    <div class="carousel-caption text-end">
-                        <h1>One more for good measure.</h1>
-                        <p>Some representative placeholder content for the third slide of this carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
+            <div class="col-lg-4 col-md-12">
+                <div class="feature-item">
+                    <div class="feature-text">
+                        <h3>Kaca</h3>
+                        <p>Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="feature-item">
+                    <div class="feature-text">
+                        <h3>Stainless</h3>
+                        <p>Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non</p>
                     </div>
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
     </div>
-
-
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
-
-    <div class="container marketing">
-
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
-            <div class="col-lg-4">
-                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
-                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%"
-                        fill="#777" dy=".3em">140x140</text>
-                </svg>
-
-                <h2>Heading</h2>
-                <p>Some representative placeholder content for the three columns of text below the carousel. This is the
-                    first column.</p>
-                <p><a class="btn btn-secondary" href="#">View details »</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
-                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%"
-                        fill="#777" dy=".3em">140x140</text>
-                </svg>
-
-                <h2>Heading</h2>
-                <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second
-                    column.</p>
-                <p><a class="btn btn-secondary" href="#">View details »</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
-                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%"
-                        fill="#777" dy=".3em">140x140</text>
-                </svg>
-
-                <h2>Heading</h2>
-                <p>And lastly this, the third column of representative placeholder content.</p>
-                <p><a class="btn btn-secondary" href="#">View details »</a></p>
-            </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
-
+</div>
+<!-- Feature End-->
 
         <!-- START THE FEATURETTES -->
 
@@ -187,4 +153,6 @@
         <!-- /END THE FEATURETTES -->
 
     </div><!-- /.container -->
+    
+</div>
 @endsection

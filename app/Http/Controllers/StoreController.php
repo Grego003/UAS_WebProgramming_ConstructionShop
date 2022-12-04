@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\Color;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -15,12 +16,30 @@ class StoreController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($categoryID = '')
     {
+        if ($categoryID == '') {
+            $products = Product::paginate(9);
+        } else {
+            $products = Product::where('category_id', $categoryID)->paginate(9);
+        }
+        $categories = Category::all();
+        $subCategories = SubCategory::all();
+        $colors = Color::all();
+        $subCategoryID = "";
+
+        return view('products.catalog', [
+            "products" => $products,
+            "categories" => $categories,
+            "categoryID" => $categoryID,
+            "subCategories" => $subCategories,
+            "subCategoryID" => $subCategoryID,
+            "colors" => $colors
+        ]);
         $products = Product::all();
         $categories = Category::all();
         $subCategory = SubCategory::all();
-        return view('store.index', ['products' => $products, 'categories' => $categories, 'subCategory' => $subCategory]);
+        return view('products.catalog', ['products' => $products, 'categories' => $categories, 'subCategories' => $subCategory]);
     }
 
     /**
