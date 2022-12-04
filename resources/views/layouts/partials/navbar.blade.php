@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="top-bar-text">
                                     <h3>Email Us</h3>
-                                    <p>nusakaryautama@company.com</p>
+                                    <p>leeman@gmail.com</p>
                                 </div>
                             </div>
                         </div>
@@ -58,26 +58,27 @@
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
                 <a href="#" class="navbar-brand">MENU</a>
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
                     <div class="navbar-nav mr-auto">
-                        <a href={{ url('dashboard') }} class="nav-item nav-link">Home</a>
+                        <a href={{ url('dashboard') }} class="nav-item nav-link active" aria-current="page">Home</a>
                         <a href={{ url('about') }} class="nav-item nav-link">About</a>
                         <a href={{ url('products') }} class="nav-item nav-link">Catalog</a>
                         <a href="#" class="nav-item nav-link">Aluminium</a>
                         <a href="#" class="nav-item nav-link">Kaca</a>
                         <a href="#" class="nav-item nav-link">Stainless</a>
-                        <div class="nav-item dropdown show">
-                            <a class="nav-link dropdown-toggle" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Aksesoris
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                              <a class="dropdown-item" href="#">Kusen</a>
-                              <a class="dropdown-item" href="#">Jendela Casement</a>
-                              <a class="dropdown-item" href="#">Jendela Sliding</a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                              <a class="dropdown-item" href="#">Kunci</a>
+                              <a class="dropdown-item" href="#">Plat</a>
+                              <a class="dropdown-item" href="#">Siku</a>
+                              <a class="dropdown-item" href="#">Bracket</a>
                             </div>
                           </div>
                     </div>
@@ -91,10 +92,10 @@
                                 </form>
                             @else
                                 <a href="{{ route('login') }}"
-                                    class="text-sm btn btn-light text-dark text-decoration-none">Log in</a>
+                                    class="text-sm btn btn-light text-dark text-decoration-none rounded">Log in</a>
                                 @if (Route::has('register'))
                                     <a href="{{ route('register') }}"
-                                        class="text-sm btn btn-light text-dark text-decoration-none">Register</a>
+                                        class="text-sm btn btn-light text-dark text-decoration-none rounded">Register</a>
                                 @endif
                             @endauth
                         </div>
