@@ -1,52 +1,101 @@
 @extends('layouts.main')
 
 @section('content')
-    <div class="container">
-        <div class="pt-5 mt-5 d-flex justify-content-between">
-            <h2>
-                @switch($categoryID)
-                    @case(1)
-                        {{ $categories['0']->category_name }}
-                    @break
+@include('layouts.partials.page-header', ['page' => 'Catalog'])
 
-                    @case(2)
-                        {{ $categories['1']->category_name }}
-                    @break
+    @if (!$products->isEmpty())
+        <h2 class="text-center">Barang Sedang Kosong</h2>
+    @endif
+    <div class="categories container justify-content-center">
+        <div class="mt-5 d-flex flex-column justify-content-center">
+            <h2 class="text-center my-2 mx-auto">
+                @if (!$categoryID && $subCategoryID)
+                    @switch($subCategoryID)
+                        @case(1)
+                            {{ $subCategories['0']->sub_category }}
+                        @break
 
-                    @case(3)
-                        {{ $categories['2']->category_name }}
-                    @break
+                        @case(2)
+                            {{ $subCategories['1']->sub_category }}
+                        @break
 
-                    @case(4)
-                        {{ $categories['3']->category_name }}
-                    @break
+                        @case(3)
+                            {{ $subCategories['2']->sub_category }}
+                        @break
 
-                    @case(5)
-                        {{ $categories['4']->category_name }}
-                    @break
+                        @case(4)
+                            {{ $subCategories['3']->sub_category }}
+                        @break
 
-                    @case(6)
-                        {{ $categories['5']->category_name }}
-                    @break
+                        @case(5)
+                            {{ $subCategories['4']->sub_category }}
+                        @break
 
-                    @case(7)
-                        {{ $categories['6']->category_name }}
-                    @break
+                        @case(6)
+                            {{ $subCategories['5']->sub_category }}
+                        @break
 
-                    @default
-                        All Products
-                @endswitch
+                        @case(7)
+                            {{ $subCategories['6']->sub_category }}
+                        @break
+
+                        @case(8)
+                            {{ $subCategories['7']->sub_category }}
+                        @break
+
+                        @case(9)
+                            {{ $subCategories['8']->sub_category }}
+                        @break
+
+                        @case(10)
+                            {{ $subCategories['9']->sub_category }}
+                        @break
+
+                        @default
+                            Semua Produk
+                    @endswitch
+                @else
+                    @switch($categoryID)
+                        @case(1)
+                            {{ $categories['0']->category_name }}
+                        @break
+
+                        @case(2)
+                            {{ $categories['1']->category_name }}
+                        @break
+
+                        @case(3)
+                            {{ $categories['2']->category_name }}
+                        @break
+
+                        @case(4)
+                            {{ $categories['3']->category_name }}
+                        @break
+
+                        @case(5)
+                            {{ $categories['4']->category_name }}
+                        @break
+
+                        @case(6)
+                            {{ $categories['5']->category_name }}
+                        @break
+
+                        @case(7)
+                            {{ $categories['6']->category_name }}
+                        @break
+
+                        @default
+                            Semua Produk
+                    @endswitch
+                @endif
             </h2>
-            <div>
-                <li class="categories list-unstyled pt-2">
+            <div class="d-flex justify-content-center">
+                <li class="text-center categories list-unstyled pt-2">
+                    <h4 class="mt-3">Kategori</h4>
+                    <hr>
                     <ul class="d-flex">
-                        <li class="category-list list-unstyled me-3">
-                            <a href={{ url('products') . '/' }}>
-                                <p>All</p>
-                            </a>
-                        </li>
                         @foreach ($categories as $category)
-                            <li class="category-list list-unstyled me-3">
+                        <li class="text-center category-list list-unstyled me-3">
                                 <a href={{ url('products') . '/' . $category->id }}>
                                     <p>{{ $category->category_name }}</p>
                                 </a>
@@ -55,37 +104,65 @@
                     </ul>
                 </li>
             </div>
-        </div>
-        <hr />
-        <div class="d-flex">
-            {{-- {{ $products->links('pagination::bootstrap-4') }} --}}
-        </div>
-
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-            @foreach ($products as $product)
-                <div class="col">
-                    <div class="product card shadow-sm">
-                        <img src="https://pixabay.com/get/gc60f369d1b53616468afb32bcbbde217cb6a87209eec664c8577e8fd1c7cc9340012bf967f375da44f2713df8fdd1ea4350d88773b8bf2b2a5c0b11f0746bedd_640.jpg"
-                            alt="" srcset="">
-                        <div class="card-body">
-                            <h5 class="card-title"> {{ $product->product_name }} --> {{ $product->product_code }}</h5>
-                            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                                additional
-                                content. This content is a little bit longer.</p>
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-sm btn-outline-secondary">View
-                                        Details</button>
-                                </div>
-                                <small class="text-muted">Price : </small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-            <div class="d-flex">
-                {{ $products->links('pagination::bootstrap-4') }}
+            @if ($categoryID == 1)               
+            <div class="d-flex justify-content-center">
+                <li class="text-center categories list-unstyled pt-2">
+                    <h4 class="mt-3">Produk / Sub-Kategori</h4>
+                    <hr>
+                    <ul class="d-flex">
+                        @foreach ($subCategories as $subCategory)
+                        <li class="text-center category-list list-unstyled me-3">
+                                <a href={{ url('products/sub') . '/' . $subCategory->id }}>
+                                    <p>{{ $subCategory->sub_category }}</p>
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </li>
             </div>
+            @endif
         </div>
     </div>
+
+        <div class="blog">
+            <div class="container">
+                <div class="row blog-page">
+                    @foreach ($products as $product)
+                        @if ($categoryID == 2)
+                            @include('cards.kacaCard')
+                        @else
+                            @include('cards.mainCard')
+                        @endif
+                    @endforeach
+            </div>
+
+        <div class="d-flex">
+            {{ $products->links('pagination::bootstrap-4') }}
+        </div>
+    </div>
+</div>
+<!-- Blog End -->
 @endsection
+
+<script>
+    function confirmDelete(ev){
+        ev.preventDefault();
+        var submit = ev.currentTarget.getAttribute('data-id');
+        console.log(submit);
+        swal({
+            title: "Are you sure?",
+            text: "Once deleted, you will not be able to recover this imaginary file!",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                swal("Poof! Your imaginary file has been deleted!", {
+                icon: "success",
+                });
+                document.getElementById(submit).submit();
+            } 
+        });
+    }
+</script>
