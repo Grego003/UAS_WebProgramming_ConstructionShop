@@ -1,190 +1,264 @@
 @extends('layouts.main')
 
 @section('content')
-    <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class=""
-                aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2" class="active"
-                aria-current="true"></button>
-            <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"
-                class=""></button>
-        </div>
+<div class="wrapper">
+    <!-- Carousel Start -->
+    <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-bs-target="#carousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></li>
+            <li data-bs-target="#carousel" data-bs-slide-to="1" aria-label="Slide 2"></li>
+            <li data-bs-target="#carousel" data-bs-slide-to="2" aria-label="Slide 3"></li>
+        </ol>
         <div class="carousel-inner">
-            <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="#777"></rect>
-                </svg>
-
-                <div class="container">
-                    <div class="carousel-caption text-start">
-                        <h1>Example headline.</h1>
-                        <p>Some representative placeholder content for the first slide of the carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Sign up today</a></p>
-                    </div>
-                </div>
-            </div>
             <div class="carousel-item active">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="#777"></rect>
-                </svg>
-
-                <div class="container">
-                    <div class="carousel-caption">
-                        <h1>Another example headline.</h1>
-                        <p>Some representative placeholder content for the second slide of the carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Learn more</a></p>
-                    </div>
+                <img src="{{ asset('images/construction_assets/Kaca/Kaca Canopi PT8mm.jpeg') }}" alt="Carousel Image">
+                <div class="carousel-caption">
+                    <p class="animated fadeInRight">40 tahun pengalaman di</p>
+                    <h1 class="animated fadeInLeft">Bidang Konstruksi</h1>
+                    <a class="btn animated fadeInUp" href="{{ url('stores') }}">Produk Kami</a>
                 </div>
             </div>
-            <div class="carousel-item">
-                <svg class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg"
-                    aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <rect width="100%" height="100%" fill="#777"></rect>
-                </svg>
 
-                <div class="container">
-                    <div class="carousel-caption text-end">
-                        <h1>One more for good measure.</h1>
-                        <p>Some representative placeholder content for the third slide of this carousel.</p>
-                        <p><a class="btn btn-lg btn-primary" href="#">Browse gallery</a></p>
-                    </div>
+            <div class="carousel-item">
+                <img src="{{ asset('images/construction_assets/Kaca/ShowerBoxKacaPT10mmRekSledingAtas.jpeg') }}" alt="Carousel Image">
+                <div class="carousel-caption">
+                    <p class="animated fadeInRight">Menyediakan banyak ragam alat konstruksi</p>
+                    <h1 class="animated fadeInLeft">Kami bersedia melayani anda</h1>
+                    <a class="btn animated fadeInUp" href="{{ url('stores') }}">Produk Kami</a>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="{{ asset('images/construction_assets/Kaca/Partisi kaca PT12mm.jpeg') }}" alt="Carousel Image">
+                <div class="carousel-caption">
+                    <p class="animated fadeInRight">Kami dipercaya oleh banyak sekali pelanggan</p>
+                    <h1 class="animated fadeInLeft">Tidak perlu ragu. Langsung saja kontak kami</h1>
+                    <a class="btn animated fadeInUp" href="{{ url('stores') }}">Produk Kami</a>
                 </div>
             </div>
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+
+        <a class="carousel-control-prev" href="#carousel" role="button" data-bs-target="#carousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        </a>
+        <a class="carousel-control-next" href="#carousel" role="button" data-bs-target="#carousel" data-bs-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Next</span>
-        </button>
+        </a>
+    </div>
+    <!-- Carousel End -->
+
+<!-- Feature Start-->
+<div class="feature wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-4 col-md-12">
+                <div class="feature-item">
+                    <div class="feature-text">
+                        <h3 class="text-center">Aluminium</h3>
+                        <p class="text-center">Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="feature-item">
+                    <div class="feature-text">
+                        <h3 class="text-center">Kaca</h3>
+                        <p class="text-center">Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+                <div class="feature-item">
+                    <div class="feature-text">
+                        <h3 class="text-center">Stainless</h3>
+                        <p class="text-center">Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Feature End-->
+
+  <!-- FAQs Start -->
+  <div class="faqs">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Frequently Asked Question</p>
+            <h2>Pertanyaan</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="accordion-1">
+                    <div class="card wow fadeInLeft" data-wow-delay="0.1s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-bs-toggle="collapse" href="#collapseOne">
+                                Bagaimana cara memesan barang di website ini?
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body">
+                                Website kami tidak secara langsung menyediakan proses jual beli. Namun kami menyediakan fitur untuk menghubungkan antara pembeli dan penjual. Jadi, jika anda ingin memesan barang, anda harus menghubungi kami terlebih dahulu melalui WhatsApp di nomor 089676761828
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.2s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-bs-toggle="collapse" href="#collapseTwo">
+                                Lorem ipsum dolor sit amet?
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.3s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-bs-toggle="collapse" href="#collapseThree">
+                                Lorem ipsum dolor sit amet?
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.4s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-bs-toggle="collapse" href="#collapseFour">
+                                Lorem ipsum dolor sit amet?
+                            </a>
+                        </div>
+                        <div id="collapseFour" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="accordion-2">
+                    <div class="card wow fadeInRight" data-wow-delay="0.1s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-bs-toggle="collapse" href="#collapseSix">
+                                Lorem ipsum dolor sit amet?
+                            </a>
+                        </div>
+                        <div id="collapseSix" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-bs-toggle="collapse" href="#collapseSeven">
+                                Lorem ipsum dolor sit amet?
+                            </a>
+                        </div>
+                        <div id="collapseSeven" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInRight" data-wow-delay="0.3s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-bs-toggle="collapse" href="#collapseEight">
+                                Lorem ipsum dolor sit amet?
+                            </a>
+                        </div>
+                        <div id="collapseEight" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInRight" data-wow-delay="0.4s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-bs-toggle="collapse" href="#collapseNine">
+                                Lorem ipsum dolor sit amet?
+                            </a>
+                        </div>
+                        <div id="collapseNine" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FAQs End -->
+
+  <!-- Fact Start -->
+  <div class="fact">
+    <div class="container-fluid">
+        <div class="row counters">
+            <div class="col-md-6 fact-left wow slideInLeft">
+                <div class="row">
+                    <div class="fact-content col-6">
+                        <div class="fact-icon">
+                            <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/null/external-construction-emergency-service-flaticons-lineal-color-flat-icons.png"/>
+                        </div>
+                        <div class="fact-text">
+                            <p>Pekerja Profesional</p>
+                        </div>
+                    </div>
+                    <div class="fact-content col-6">
+                        <div class="fact-icon">
+                            <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/null/external-materials-tools-and-material-ecommerce-flaticons-lineal-color-flat-icons-3.png"/>
+                        </div>
+                        <div class="fact-text">
+                            <p>Bahan Berkualitas</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 fact-right wow slideInRight">
+                <div class="row">
+                    <div class="fact-content col-6">
+                        <div class="fact-icon">
+                            <img src="https://img.icons8.com/ultraviolet/40/null/money--v1.png"/>                        </div>
+                        <div class="fact-text">
+                            <p>Harga Terjangkau</p>
+                        </div>
+                    </div>
+                    <div class="fact-content col-6">
+                        <div class="fact-icon">
+                            <img src="https://img.icons8.com/doodle/48/null/maintenance.png"/>
+                        </div>
+                        <div class="fact-text">
+                            <p>Instalasi Cepat</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fact End -->
+
+<!-- Location Start -->
+<div class="location d-flex flex-column justify-content-center">
+    <div class="section-header text-center mt-5">
+        <h2 class="mb-2">Lokasi Kami</h2>
+        <p>Jangan ragu untuk menghubungi kontak kami untuk mendapatkan informasi lebih detail mengenai jasa yang kami berikan. <br> Anda juga dapat langsung mendatangi lokasi kami berikut ini</p>
     </div>
 
+    <div class="mapouter mx-auto"><div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=800&amp;height=400&amp;hl=en&amp;q=Jl. H. Nawi Raya No.1, RT.1/RW.2&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://formatjson.org/word-counter">Word Counter</a></div><style>.mapouter{position:relative;text-align:right;width:800px;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:800px;height:400px;}.gmap_iframe {width:800px!important;height:400px!important;}</style></div>
+</div>
+<!-- Location End-->
 
-    <!-- Marketing messaging and featurettes
-    ================================================== -->
-    <!-- Wrap the rest of the page in another container to center all the content. -->
+</div><!-- /.container -->
 
-    <div class="container marketing">
-
-        <!-- Three columns of text below the carousel -->
-        <div class="row">
-            <div class="col-lg-4">
-                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
-                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%"
-                        fill="#777" dy=".3em">140x140</text>
-                </svg>
-
-                <h2>Heading</h2>
-                <p>Some representative placeholder content for the three columns of text below the carousel. This is the
-                    first column.</p>
-                <p><a class="btn btn-secondary" href="#">View details »</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
-                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%"
-                        fill="#777" dy=".3em">140x140</text>
-                </svg>
-
-                <h2>Heading</h2>
-                <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second
-                    column.</p>
-                <p><a class="btn btn-secondary" href="#">View details »</a></p>
-            </div><!-- /.col-lg-4 -->
-            <div class="col-lg-4">
-                <svg class="bd-placeholder-img rounded-circle" width="140" height="140"
-                    xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140"
-                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%"
-                        fill="#777" dy=".3em">140x140</text>
-                </svg>
-
-                <h2>Heading</h2>
-                <p>And lastly this, the third column of representative placeholder content.</p>
-                <p><a class="btn btn-secondary" href="#">View details »</a></p>
-            </div><!-- /.col-lg-4 -->
-        </div><!-- /.row -->
-
-
-        <!-- START THE FEATURETTES -->
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your
-                        mind.</span></h2>
-                <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose
-                    here.</p>
-            </div>
-            <div class="col-md-5">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                    height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%"
-                        fill="#aaa" dy=".3em">500x500</text>
-                </svg>
-
-            </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-            <div class="col-md-7 order-md-2">
-                <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span>
-                </h2>
-                <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how
-                    this layout would work with some actual real-world content in place.</p>
-            </div>
-            <div class="col-md-5 order-md-1">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                    height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%"
-                        fill="#aaa" dy=".3em">500x500</text>
-                </svg>
-
-            </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <div class="row featurette">
-            <div class="col-md-7">
-                <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-                <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really
-                    intended to be actually read, simply here to give you a better view of what this would look like with
-                    some actual content. Your content.</p>
-            </div>
-            <div class="col-md-5">
-                <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500"
-                    height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500"
-                    preserveAspectRatio="xMidYMid slice" focusable="false">
-                    <title>Placeholder</title>
-                    <rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%"
-                        fill="#aaa" dy=".3em">500x500</text>
-                </svg>
-
-            </div>
-        </div>
-
-        <hr class="featurette-divider">
-
-        <!-- /END THE FEATURETTES -->
-
-    </div><!-- /.container -->
 @endsection
