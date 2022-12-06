@@ -9,3 +9,8 @@ class Review extends Model
 {
     use HasFactory;
 }
+
+class Review extends Model
+{
+    use HasFactory;
+}
