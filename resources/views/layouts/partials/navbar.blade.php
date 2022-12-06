@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="top-bar-item">
+                            <div class="top-bar-item">  
                                 <div class="top-bar-icon">
                                     <i class="flaticon-send-mail"></i>
                                 </div>

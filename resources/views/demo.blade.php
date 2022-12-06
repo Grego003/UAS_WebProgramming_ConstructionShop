@@ -81,6 +81,7 @@
     </div>
 </div>
 <!-- Feature End-->
+
 <div class="review">
     <h2 class="text-center">Testimonials</h2>
     <div class="overflow-auto d-flex justify-content-around">
@@ -287,6 +288,7 @@
     <div class="mapouter mx-auto"><div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=800&amp;height=400&amp;hl=en&amp;q=Jl. H. Nawi Raya No.1, RT.1/RW.2&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://formatjson.org/word-counter">Word Counter</a></div><style>.mapouter{position:relative;text-align:right;width:800px;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:800px;height:400px;}.gmap_iframe {width:800px!important;height:400px!important;}</style></div>
 </div>
 <!-- Location End-->
+
 </div><!-- /.container -->
 
 @endsection

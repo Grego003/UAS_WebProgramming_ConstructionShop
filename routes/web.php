@@ -3,9 +3,7 @@
 use App\Http\Controllers\StoreController;
 use App\Models\Product;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\ReviewController;
 use App\Models\Products;
-use App\Models\Review;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -31,11 +29,8 @@ Route::get('/admin/login/{name}/send', function ($name) {
     return view('demo');
 });
 Route::get('/dashboard', function () {
-    $reviews = Review::all();
-    return view('demo', ['reviews' => $reviews]);
+    return view('demo');
 });
-
-Route::post('review', [ReviewController::class, 'store']);
 
 Route::resource('stores', StoreController::class);
 
