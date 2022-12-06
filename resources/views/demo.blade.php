@@ -156,6 +156,38 @@
 </div>
 <!-- Feature End-->
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+<div class="review">
+    <h2 class="text-center">Testimonials</h2>
+    <div class="overflow-auto d-flex justify-content-around">
+        @foreach ($reviews as $review)
+        <div class="test">
+            <div class="card">
+                <div class="card-body">
+                    <div class="image d-flex align-items-center mb-2">
+                        <img class="img-fluid rounded-circle" width="100px" height="100px" src="{{asset('images/construction_assets/profil-default.png')}}" alt="" srcset="">
+                        <h5 class="card-title ms-2">{{$review->name}}</h5>
+                    </div>
+                  <p>{{$review->comment}}</p>
+                  <div class="d-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
+        </div>
+        @endforeach
+    </div>
+</div>
+>>>>>>> 0daf36a (last modified)
 
   <!-- FAQs Start -->
   <div class="faqs">
