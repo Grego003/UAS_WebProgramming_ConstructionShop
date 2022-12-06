@@ -3,7 +3,7 @@
 @section('content')
 @include('layouts.partials.page-header', ['page' => 'Catalog'])
 
-    @if (!$products->isEmpty())
+    @if ($products->isEmpty())
         <h2 class="text-center">Barang Sedang Kosong</h2>
     @endif
     <div class="categories container justify-content-center">
@@ -91,7 +91,7 @@
             </h2>
             <div class="d-flex justify-content-center">
                 <li class="text-center categories list-unstyled pt-2">
-                    <h4 class="mt-3">Kategori</h4>
+                    <h4 class="mt-2">Kategori</h4>
                     <hr>
                     <ul class="d-flex">
                         @foreach ($categories as $category)
@@ -99,15 +99,15 @@
                                 <a href={{ url('products') . '/' . $category->id }}>
                                     <p>{{ $category->category_name }}</p>
                                 </a>
-                            </li>
+                        </li>
                         @endforeach
                     </ul>
                 </li>
             </div>
             @if ($categoryID == 1)               
             <div class="d-flex justify-content-center">
-                <li class="text-center categories list-unstyled pt-2">
-                    <h4 class="mt-3">Produk / Sub-Kategori</h4>
+                <li class="text-center categories list-unstyled">
+                    <h4>Produk / Sub-Kategori</h4>
                     <hr>
                     <ul class="d-flex">
                         @foreach ($subCategories as $subCategory)
@@ -124,9 +124,9 @@
         </div>
     </div>
 
-        <div class="blog">
+        <div class="catalog">
             <div class="container">
-                <div class="row blog-page">
+                <div class="row catalog-page">
                     @foreach ($products as $product)
                         @if ($categoryID == 2)
                             @include('cards.kacaCard')
