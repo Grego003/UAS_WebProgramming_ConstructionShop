@@ -153,7 +153,9 @@
         </div>
         @endforeach
     </div>
-</div> --}}
+</div>
+<!-- Feature End-->
+<<<<<<< HEAD
 
         <!-- FAQs Start -->
         <div class="faqs">
@@ -342,33 +344,41 @@
                     kami berikan. <br> Anda juga dapat langsung mendatangi lokasi kami berikut ini</p>
             </div>
 
-            <div class="mapouter mx-auto">
-                <div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0"
-                        marginwidth="0"
-                        src="https://maps.google.com/maps?width=800&amp;height=400&amp;hl=en&amp;q=Jl. H. Nawi Raya No.1, RT.1/RW.2&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a
-                        href="https://formatjson.org/word-counter">Word Counter</a></div>
-                <style>
-                    .mapouter {
-                        position: relative;
-                        text-align: right;
-                        width: 800px;
-                        height: 400px;
-                    }
+    <div class="mapouter mx-auto"><div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=800&amp;height=400&amp;hl=en&amp;q=Jl. H. Nawi Raya No.1, RT.1/RW.2&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://formatjson.org/word-counter">Word Counter</a></div><style>.mapouter{position:relative;text-align:right;width:800px;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:800px;height:400px;}.gmap_iframe {width:800px!important;height:400px!important;}</style></div>
+</div>
+<!-- Location End-->
 
-                    .gmap_canvas {
-                        overflow: hidden;
-                        background: none !important;
-                        width: 800px;
-                        height: 400px;
-                    }
-
-                    .gmap_iframe {
-                        width: 800px !important;
-                        height: 400px !important;
-                    }
-                </style>
-            </div>
+=======
+<div class="review">
+    <h2 class="text-center">Testimonials</h2>
+    <div class="row justify-content-around">
+        @foreach ($reviews as $review)
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <div class="image d-flex align-items-center mb-2">
+                        <img class="img-fluid rounded-circle" width="100px" height="100px" src="{{asset('images/construction_assets/profil-default.png')}}" alt="" srcset="">
+                        <h5 class="card-title ms-2">{{$review->name}}</h5>
+                    </div>
+                  <p>{{$review->comment}}</p>
+                  <div class="d-flex">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                    </svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+                        <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+                    </svg>
+                  </div>
+                </div>
+              </div>
         </div>
-        <!-- Location End-->
-    </div><!-- /.container -->
+        @endforeach
+    </div>
+</div>
+>>>>>>> 679b2e8 (tes2)
+</div><!-- /.container -->
+
 @endsection
