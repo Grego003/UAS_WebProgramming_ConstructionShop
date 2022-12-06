@@ -23,8 +23,4 @@ class ReviewController extends Controller
         $review->save();
         return redirect()->back();
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> e6f411c (tes2)
