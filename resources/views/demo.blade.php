@@ -83,9 +83,9 @@
 <!-- Feature End-->
 <div class="review">
     <h2 class="text-center">Testimonials</h2>
-    <div class="row justify-content-around">
+    <div class="overflow-auto d-flex justify-content-around">
         @foreach ($reviews as $review)
-        <div class="col-md-4">
+        <div class="test">
             <div class="card">
                 <div class="card-body">
                     <div class="image d-flex align-items-center mb-2">
