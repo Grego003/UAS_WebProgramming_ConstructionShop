@@ -198,7 +198,6 @@
         @endforeach
     </div>
 </div>
->>>>>>> 679b2e8 (tes2)
 </div><!-- /.container -->
 
 @endsection
