@@ -20,7 +20,7 @@ class ConfirmablePasswordController extends Controller
         return view('auth.confirm-password');
     }
 
-    /**
+    /***
      * Confirm the user's password.
      *
      * @param  \Illuminate\Http\Request  $request

@@ -17,6 +17,7 @@
             html,
             body {
                 height: 100%;
+                background-color: #0E2A47;
             }
 
             body {

@@ -20,7 +20,7 @@ class AuthenticatedSessionController extends Controller
         return view('auth.login');
     }
 
-    /**
+    /***
      * Handle an incoming authentication request.
      *
      * @param  \App\Http\Requests\Auth\LoginRequest  $request
