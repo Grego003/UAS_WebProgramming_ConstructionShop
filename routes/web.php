@@ -1,9 +1,8 @@
 <?php
 
 use App\Http\Controllers\StoreController;
-use App\Models\Product;
-use App\Http\Controllers\ProductController;
 use App\Models\Products;
+use App\Http\Controllers\ProductController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 

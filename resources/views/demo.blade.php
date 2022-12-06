@@ -82,7 +82,7 @@
 </div>
 <!-- Feature End-->
 
-<div class="review">
+{{-- <div class="review">
     <h2 class="text-center">Testimonials</h2>
     <div class="overflow-auto d-flex justify-content-around">
         @foreach ($reviews as $review)
@@ -110,7 +110,7 @@
         </div>
         @endforeach
     </div>
-</div>
+</div> --}}
 
   <!-- FAQs Start -->
   <div class="faqs">
