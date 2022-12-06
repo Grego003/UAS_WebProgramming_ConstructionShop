@@ -12,9 +12,6 @@
 
 <!-- Font Awesome CSS -->
 
-<!-- Custom CSS -->
-<link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
-
 {{-- javascript --}}
 @include('sweetalert::alert')
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -22,13 +19,7 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
 <!-- Custom CSS -->
-<link rel="stylesheet" href="{{ asset('css/carousel.css') }}">
-
 <link rel="stylesheet" href="{{ asset('css/style.css') }}">
-{{-- @include('sweetalert::alert')
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script> --}}
-<script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI="
-    crossorigin="anonymous"></script>
 
 <!-- Libraries CSS -->
 <link href="{{ asset('lib/flaticon/font/flaticon.css') }}" rel="stylesheet">

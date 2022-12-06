@@ -13,17 +13,18 @@
             <div class="col-md-6 col-lg-3">
                 <div class="footer-link">
                     <h2>Services Areas</h2>
-                    <a href="aluminium">Aluminium</a>
-                    <a href="kaca">Kaca</a>
-                    <a href="stainless">Stainless</a>
-                    <a href="aksesoris">Aksesoris</a>
+                    <a href="{{ url('products/1') }}">Aluminium</a>
+                    <a href="{{ url('products/2') }}">Kaca</a>
+                    <a href="{{ url('products/3') }}">Stainless</a>
+                    <a href="{{ url('products/4') }}">Aksesoris</a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
                 <div class="footer-link">
                     <h2>Pages</h2>
-                    <a href="about">About</a>
-                    <a href="contact">Contact Us</a>
+                    <a href="{{ url('about') }}">About</a>
+                    <a href="{{ url('stores') }}">Catalog</a>
+                    <a href="{{ url('contact') }}">Contact Us</a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -42,9 +43,9 @@
     </div>
     <div class="container footer-menu">
         <div class="f-menu">
-            <a href="whatsapp://send?text=Halo!&phone=+6289676761828">WhatsApp</a>
-            <a href="https://www.tokopedia.com/rpleeman">Tokopedia</a>
-            <a href="">Shopee</a>
+            <a class="text-decoration-none" href="whatsapp://send?text=Halo!&phone=+6289676761828"><img src="https://img.icons8.com/color/48/null/whatsapp--v1.png"/></a>
+            <a class="text-decoration-none" href="https://www.tokopedia.com/rpleeman"><img src="https://img.icons8.com/nolan/64/tokopedia.png"/></a>
+            <a class="text-decoration-none" href=""><img src="https://img.icons8.com/color/48/null/shopee.png"/></a>
         </div>
     </div>
     <div class="container copyright">

@@ -1,17 +1,17 @@
 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-    <div class="blog-item">
-        <div class="blog-img">
+    <div class="catalog-item">
+        <div class="catalog-img">
             <img src="{{ Storage::url($product->src_img) }}" alt="img">
-            <div class="blog-overlay">
+            <div class="catalog-overlay">
                 <p> {{ $product->description }}</p>
             </div>
         </div>
-        <div class="blog-title">
+        <div class="catalog-title">
             <h3>{{ $product->product_name }}</h3>
             <a class="code" href="">{{ $product->code }}</a>
         </div>
         @if ($categoryID == 1)
-        <div class="blog-text">
+        <div class="catalog-text">
                 <h5>Available Material/Colors</h5>
                 @foreach ($product->color as $color)
                 <button
@@ -20,7 +20,7 @@
             @endforeach
         </div>
         @endif
-            <div class="blog-footer">
+            <div class="catalog-footer">
                 @can('only_admin', $product)                    
                 <a href="/stores/{{ $product->id }}/edit" class="badge rounded-pill bg-secondary text-decoration-none">Edit</a>
                 <form class="d-inline" action="/stores/{{ $product->id }}" method="post" id="del{{ $product->id }}">
