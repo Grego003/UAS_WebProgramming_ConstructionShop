@@ -9,8 +9,11 @@ class Review extends Model
 {
     use HasFactory;
 }
+<<<<<<< HEAD
 
 class Review extends Model
 {
     use HasFactory;
 }
+=======
+>>>>>>> e6f411c (tes2)
