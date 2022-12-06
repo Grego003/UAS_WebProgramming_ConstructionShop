@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="top-bar-item">  
+                            <div class="top-bar-item">
                                 <div class="top-bar-icon">
                                     <i class="flaticon-send-mail"></i>
                                 </div>
@@ -68,6 +68,12 @@
                         <a href={{ url('dashboard') }} class="nav-item nav-link" aria-current="page">Home</a>
                         <a href={{ url('about') }} class="nav-item nav-link">About</a>
                         <a href={{ url('stores') }} class="nav-item nav-link">Catalog</a>
+<<<<<<< HEAD
+=======
+                        @can('only_admin')
+                            <a href={{ route('stores.create') }} class="nav-item nav-link btn btn-light text-dark">Admin</a>
+                        @endcan
+>>>>>>> 679b2e8 (tes2)
                         <a href="#" class="nav-item nav-link">Aluminium</a>
                         <a href="#" class="nav-item nav-link">Kaca</a>
                         <a href="#" class="nav-item nav-link">Stainless</a>
