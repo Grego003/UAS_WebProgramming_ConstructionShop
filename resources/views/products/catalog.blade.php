@@ -4,7 +4,7 @@
 @include('layouts.partials.page-header', ['page' => 'Catalog'])
 
     @if ($products->isEmpty())
-        <h2 class="text-center">Barang Sedang Kosong</h2>
+        <h2 class="text-center">Barang Sedang Kosong!</h2>
     @endif
     <div class="categories container justify-content-center">
         <div class="mt-5 d-flex flex-column justify-content-center">
