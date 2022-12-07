@@ -4,7 +4,6 @@ use App\Http\Controllers\StoreController;
 use App\Models\Product;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
-use App\Models\Products;
 use App\Models\Review;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
