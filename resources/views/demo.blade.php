@@ -89,7 +89,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="image d-flex align-items-center mb-2">
-                        <img class="img-fluid rounded-circle" width="100px" height="100px" src="{{asset('images/construction_assets/profil-default.png')}}" alt="" srcset="">
+                        <img class="img-fluid rounded-circle" width="100px" height="100px" src="{{asset('images/profil-default.png')}}" alt="" srcset="">
                         <h5 class="card-title ms-2">{{$review->name}}</h5>
                     </div>
                   <p>{{$review->comment}}</p>
