@@ -2,10 +2,6 @@
 
 @section('content')
 @include('layouts.partials.page-header', ['page' => 'Catalog'])
-
-    @if ($products->isEmpty())
-        <h2 class="text-center">Barang Sedang Kosong!</h2>
-    @endif
     <div class="categories container justify-content-center">
         <div class="mt-5 d-flex flex-column justify-content-center">
             <h2 class="text-center my-2 mx-auto">
@@ -109,7 +105,7 @@
                 <li class="text-center categories list-unstyled">
                     <h4>Produk / Sub-Kategori</h4>
                     <hr>
-                    <ul class="d-flex">
+                    <ul class="d-flex flex-wrap justify-content-center">
                         @foreach ($subCategories as $subCategory)
                         <li class="text-center category-list list-unstyled me-3">
                                 <a href={{ url('products/sub') . '/' . $subCategory->id }}>
@@ -126,6 +122,9 @@
 
         <div class="catalog">
             <div class="container">
+            @if ($products->isEmpty())
+                <h2 class="text-center">Barang Sedang Kosong!</h2>
+            @endif
                 <div class="row catalog-page">
                     @foreach ($products as $product)
                         @if ($categoryID == 2)
@@ -144,25 +143,3 @@
 <!-- Blog End -->
 @endsection
 
-<script>
-    function confirmDelete(ev){
-        ev.preventDefault();
-        var submit = ev.currentTarget.getAttribute('data-id');
-        console.log(submit);
-        swal({
-            title: "Are you sure?",
-            text: "Once deleted, you will not be able to recover this imaginary file!",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-            })
-            .then((willDelete) => {
-            if (willDelete) {
-                swal("Poof! Your imaginary file has been deleted!", {
-                icon: "success",
-                });
-                document.getElementById(submit).submit();
-            } 
-        });
-    }
-</script>

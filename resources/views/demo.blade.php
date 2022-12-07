@@ -248,6 +248,49 @@
 </div>
 <!-- Fact End -->
 
+{{-- Review Start --}}
+<div class="review">
+    <h2 class="text-center">Testimonials</h2>
+    <div class="row justify-content-around">
+        @foreach ($reviews as $review)
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="image d-flex align-items-center mb-2">
+                            {{-- <img class="img-fluid rounded-circle" width="100px" height="100px"
+                                src="{{ asset('images/profil-default.png') }}" alt="" srcset=""> --}}
+                            <h5 class="card-title ms-2">{{ $review->name }}</h5>
+                        </div>
+                        <p>{{ $review->comment }}</p>
+                        <div class="d-flex">
+                            <div class="d-flex">
+                                @for ($i = 0; $i < $review->review; $i++)
+                                <h4 class="text-warning me-2"><i class="bi bi-star-fill"></i></h4>
+                                @endfor                            
+                                @for ($i = 0; $i < 5 - $review->review; $i++)
+                                <h4 class="text-warning me-2"><i class="bi bi-star"></i></h4>
+                                @endfor                            
+                            </div>
+                            <div class="ms-auto">
+                                @can('only_admin', $review)                    
+                                    <form class="d-inline" action="/review/{{ $review->id }}" method="post" id="del{{ $review->id }}">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button style="border: 0pt" class="badge rounded-pill bg-danger" data-id="del{{ $review->id }}"  onclick="confirmDelete(event)" >Delete</button>
+                                    </form>
+                                @endcan
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
+</div>
+
+
+{{-- Review End --}}
+
 <!-- Location Start -->
 <div class="location d-flex flex-column justify-content-center">
     <div class="section-header text-center mt-5">

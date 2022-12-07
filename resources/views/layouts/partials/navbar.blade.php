@@ -58,7 +58,7 @@
     <div class="nav-bar">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-                <a href="#" class="navbar-brand">MENU</a>
+                <a href="#" class="navbar-brand">Nusa Karya Utama</a>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -68,9 +68,9 @@
                         <a href={{ url('dashboard') }} class="nav-item nav-link" aria-current="page">Home</a>
                         <a href={{ url('about') }} class="nav-item nav-link">About</a>
                         <a href={{ url('stores') }} class="nav-item nav-link">Catalog</a>
-                        <a href="#" class="nav-item nav-link">Aluminium</a>
-                        <a href="#" class="nav-item nav-link">Kaca</a>
-                        <a href="#" class="nav-item nav-link">Stainless</a>
+                        <a href="{{ url('products/1') }}" class="nav-item nav-link">Aluminium</a>
+                        <a href="{{ url('products/2') }}" class="nav-item nav-link">Kaca</a>
+                        <a href="{{ url('products/3') }}" class="nav-item nav-link">Stainless</a>
                         <div class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Aksesoris
@@ -81,7 +81,7 @@
                               <a class="dropdown-item" href="#">Siku</a>
                               <a class="dropdown-item" href="#">Bracket</a>
                             </div>
-                          </div>
+                        </div>
                         @can('only_admin')
                           <a href={{ route('stores.create') }} class="nav-item nav-link btn btn-danger border-0 text-light rounded mx-3">Admin</a>
                         @endcan

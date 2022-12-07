@@ -23,7 +23,7 @@ class StoreController extends Controller
         if ($categoryID == '') {
             $products = Product::paginate(9);
         } else {
-            $products = Product::where('category_id', $categoryID)->paginate(9);
+            $products = Product::where('category_id', $categoryID)->with(['category', 'color'])->paginate(9);
         }
         $categories = Category::all();
         $subCategories = SubCategory::all();
@@ -45,7 +45,7 @@ class StoreController extends Controller
         if ($subCategoryID == '') {
             $products = Product::paginate(9);
         } else {
-            $products = Product::where('sub_category_id', $subCategoryID)->paginate(9);
+            $products = Product::where('sub_category_id', $subCategoryID)->with(['category', 'color'])->paginate(9);
         }
         $categories = Category::all();
         $subCategories = SubCategory::all();
@@ -103,7 +103,7 @@ class StoreController extends Controller
             $product->length = $request->length;
             $product->sub_category_id = $request->sub_category;
             if ($request->img) {
-                $path = $request->file('img')->storePublicly('images', 'public');
+                $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
             }
             $product->save();
@@ -115,7 +115,7 @@ class StoreController extends Controller
             ]);
             $product = new Product();
             $product->category_id = $request->category_id;
-            $path = $request->file('img')->storePublicly('images', 'public');
+            $path = $request->file('img')->storePublicly('asset', 'public');
             $product->src_img = $path;
             $product->save();
         } else if ($request->category_id == 3) {
@@ -128,7 +128,7 @@ class StoreController extends Controller
             $product->product_name = $request->product_name;
             $product->category_id = $request->category_id;
             if ($request->img) {
-                $path = $request->file('img')->storePublicly('images', 'public');
+                $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
             }
             $product->save();
@@ -144,7 +144,7 @@ class StoreController extends Controller
             $product->product_name = $request->product_name;
             $product->category_id = $request->category_id;
             if ($request->img) {
-                $path = $request->file('img')->storePublicly('images', 'public');
+                $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
             }
             $product->description = $request->description;
@@ -231,7 +231,7 @@ class StoreController extends Controller
             $product->length = $request->length;
             $product->sub_category_id = $request->sub_category;
             if ($request->img) {
-                $path = $request->file('img')->storePublicly('images', 'public');
+                $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
             }
             $product->save();
@@ -246,7 +246,7 @@ class StoreController extends Controller
             $product = Product::findOrFail($id);
             $product->category_id = $request->category_id;
             if ($request->img) {
-                $path = $request->file('img')->storePublicly('images', 'public');
+                $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
             }
             $product->save();
@@ -261,7 +261,7 @@ class StoreController extends Controller
             $product->product_name = $request->product_name;
             $product->category_id = $request->category_id;
             if ($request->img) {
-                $path = $request->file('img')->storePublicly('images', 'public');
+                $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
             }
             $product->save();
@@ -278,7 +278,7 @@ class StoreController extends Controller
             $product->product_name = $request->product_name;
             $product->category_id = $request->category_id;
             if ($request->img) {
-                $path = $request->file('img')->storePublicly('images', 'public');
+                $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
             }
             $product->description = $request->description;
