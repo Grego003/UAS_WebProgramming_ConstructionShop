@@ -90,7 +90,7 @@ class StoreController extends Controller
         if ($request->category_id == 1) {
             $this->validate($request, [
                 'product_name' => 'required|max:255',
-                'code' => 'max:255|unique:products',
+                'code' => 'min:1|max:255|unique:products',
                 'category_id' => 'required',
                 'length' => 'regex:/^(([0-9]*)(\.([0-9]+))?)$/',
                 'sub_category' => 'required',
@@ -218,7 +218,7 @@ class StoreController extends Controller
         if ($request->category_id == 1) {
             $this->validate($request, [
                 'product_name' => 'required|max:255',
-                'code' => "max:255|unique:products,code,{$id}",
+                'code' => "min:1|max:255|unique:products,code,{$id}",
                 'category_id' => 'required',
                 'length' => 'regex:/^(([0-9]*)(\.([0-9]+))?)$/',
                 'sub_category' => 'required',
