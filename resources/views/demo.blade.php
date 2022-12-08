@@ -253,7 +253,7 @@
     <h2 class="text-center">Testimonials</h2>
     <div class="row justify-content-around">
         @foreach ($reviews as $review)
-            <div class="col-md-3">
+            <div class="col-lg-3">
                 <div class="card">
                     <div class="card-body">
                         <div class="image d-flex align-items-center mb-2">

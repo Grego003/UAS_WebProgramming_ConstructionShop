@@ -100,7 +100,7 @@
                     </ul>
                 </li>
             </div>
-            @if ($categoryID == 1)               
+            @if ($categoryID == 1 || $categoryID == 4)             
             <div class="d-flex justify-content-center">
                 <li class="text-center categories list-unstyled">
                     <h4>Produk / Sub-Kategori</h4>
@@ -111,7 +111,7 @@
                                 <a href={{ url('products/sub') . '/' . $subCategory->id }}>
                                     <p>{{ $subCategory->sub_category }}</p>
                                 </a>
-                            </li>
+                        </li>
                         @endforeach
                     </ul>
                 </li>

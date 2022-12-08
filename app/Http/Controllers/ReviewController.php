@@ -14,7 +14,7 @@ class ReviewController extends Controller
             'name' => 'required|max:100',
             'email' => 'required|unique:reviews',
             'comment' => 'required|max:350',
-            'review' => 'digits:5|numeric'
+            'review' => 'required|min:1|max:5|numeric'
         ]);
 
         $review = new Review();
