@@ -4,7 +4,10 @@ use App\Http\Controllers\StoreController;
 use App\Models\Product;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ReviewController;
+<<<<<<< HEAD
 use App\Models\Products;
+=======
+>>>>>>> origin/agus-branch
 use App\Models\Review;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;

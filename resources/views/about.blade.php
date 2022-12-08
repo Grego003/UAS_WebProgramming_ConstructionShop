@@ -66,6 +66,9 @@
           <button type="submit" class="btn btn-warning m-auto mt-2">Submit</button>
     </form>
 </div>
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/agus-branch
 </div>
 @endsection

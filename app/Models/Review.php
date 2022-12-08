@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Review extends Model
 {
     use HasFactory;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/agus-branch
