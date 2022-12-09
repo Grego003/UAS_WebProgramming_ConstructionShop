@@ -93,7 +93,7 @@
                     @if (Route::has('login'))
                         <div class="hidden fixed top-0 right-0 px-6 py-1 sm:block">
                             @auth
-                                <form action={{"http://" . $_SERVER['HTTP_HOST']."/logout"}} method="POST" class="ms-auto">
+                                <form action={{((!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] != 'off') || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://" . $_SERVER['HTTP_HOST'] . "/logout"}} method="POST" class="ms-auto">
                                     @csrf
                                     <button type="submit" class="btn btn-info text-dark rounded border-0">Logout</button>
                                 </form>
