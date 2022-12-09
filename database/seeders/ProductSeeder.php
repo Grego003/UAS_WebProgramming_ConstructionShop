@@ -21,11 +21,7 @@ class ProductSeeder extends Seeder
         $product_data = [
             /* --Kusen 3 */
             [
-<<<<<<< HEAD
-                'product_name' => 'Open Back Polos',
-=======
                 'product_name' => ' Kusen Open Back Polos',
->>>>>>> 432b8f27c4ebf5c4512022198990afc45624d6b7
                 'code' => "0428",
                 'sub_category_id' => "1",
                 'length' => "6",
@@ -33,20 +29,13 @@ class ProductSeeder extends Seeder
                 'link_shopee' => "",
                 'src_img' => "https://pixabay.com/get/g1c7291a41997f22ac9ec162f74e44bd4ef15864079b57e61edc03f8c20a9d9077f96e7e355531c8fb4597cf7ba15c4b796468e3c2521dc0c580b18c66c1f4531_640.jpg",
                 'category_id' => "1",
-<<<<<<< HEAD
-=======
                 'stock' => '50',
                 'description' => '',
->>>>>>> 432b8f27c4ebf5c4512022198990afc45624d6b7
                 'created_at' =>  $created_date,
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],
             [
-<<<<<<< HEAD
-                'product_name' => 'M Polos',
-=======
                 'product_name' => 'Kusen M Polos',
->>>>>>> 432b8f27c4ebf5c4512022198990afc45624d6b7
                 'code' => "0559",
                 'sub_category_id' => "1",
                 'length' => "6",
@@ -54,11 +43,8 @@ class ProductSeeder extends Seeder
                 'link_shopee' => "",
                 'src_img' => "https://pixabay.com/get/g1c7291a41997f22ac9ec162f74e44bd4ef15864079b57e61edc03f8c20a9d9077f96e7e355531c8fb4597cf7ba15c4b796468e3c2521dc0c580b18c66c1f4531_640.jpg",
                 'category_id' => "1",
-<<<<<<< HEAD
-=======
                 'stock' => '50',
                 'description' => '',
->>>>>>> 432b8f27c4ebf5c4512022198990afc45624d6b7
                 'created_at' =>  $created_date,
                 'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             ],

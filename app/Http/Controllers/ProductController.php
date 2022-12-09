@@ -20,6 +20,7 @@ class ProductController extends Controller
     {
         if ($categoryID == '') {
             $products = Product::paginate(9);
+            $subCategories = SubCategory::all();
         } else {
             $products = Product::where('category_id', $categoryID)->paginate(9);
         }

@@ -19,7 +19,10 @@ class ColorSeeder extends Seeder
 
         $colors_data = [
             [
-                'color_name' => 'Artic White Brown',
+                'color_name' => 'Artic White',
+            ],
+            [
+                'color_name' => 'Brown',
             ],
             [
                 'color_name' => 'Black',
