@@ -10,14 +10,14 @@
             <h3>{{ $product->product_name }}</h3>
             <a class="code" href="">{{ $product->code }}</a>
         </div>
-        @if ($categoryID == 1)
+        @if ($categoryID == 1 || $product->category_id == 1)
         <div class="catalog-text">
                 <h5>Available Material/Colors</h5>
                 @foreach ($product->color as $color)
                 <button
                 class="btn btn btn-circle btn-circle-sm me-1">{{ $color->color_name }}
             </button>
-            @endforeach
+        @endforeach
         </div>
         @endif
             <div class="catalog-footer">
@@ -33,6 +33,9 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <small class="text">Price : Rp. {{ $product->harga }}</small>
                     <small class="text">Stock : {{ $product->stock }} </small>
+                </div>
+                <div class="d-flex">
+                    <a href="{{ $product->link_tokopedia }}" style="background-color: #03AC0E" class="btn ms-auto text-white">Buy Now</a>
                 </div>
                 @endif
         </div>

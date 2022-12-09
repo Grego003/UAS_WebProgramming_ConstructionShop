@@ -56,11 +56,11 @@
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="inputGroupSelect01">Options</label>
                         <select class="form-select" id="inputGroupSelect01" name="sub_category"
-                            value="{{ old('sub_category') ?? $product->sub_category }}">
-                            <option selected>Sub Category</option>
+                            value="{{ old('sub_category') ?? $product->sub_category_id }}">
+                            <option >Sub Category</option>
                             @foreach ($subCategory as $sub)
                                 <option value="{{ $sub->id }}"
-                                    {{ $sub->id == $product->subcategory_id ? 'selected' : '' }}>{{ $sub->sub_category }}
+                                    {{ $sub->id == $product->sub_category_id ? 'selected' : '' }}>{{ $sub->sub_category }}
                                 </option>
                             @endforeach
                         </select>

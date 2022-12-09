@@ -100,19 +100,32 @@
                     </ul>
                 </li>
             </div>
+            
             @if ($categoryID == 1 || $categoryID == 4)             
             <div class="d-flex justify-content-center">
                 <li class="text-center categories list-unstyled">
-                    <h4>Produk / Sub-Kategori</h4>
+                    <h4>Produk</h4>
                     <hr>
                     <ul class="d-flex flex-wrap justify-content-center">
-                        @foreach ($subCategories as $subCategory)
-                        <li class="text-center category-list list-unstyled me-3">
-                                <a href={{ url('products/sub') . '/' . $subCategory->id }}>
-                                    <p>{{ $subCategory->sub_category }}</p>
+                        @if ($categoryID == 1)
+                            @for ($i = 0; $i < 6; $i++)
+                            <li class="text-center category-list list-unstyled me-3">
+                                <a href={{ url('products/sub') . '/' . $subCategories[$i]->id }}>
+                                    <p>{{ $subCategories[$i]->sub_category }}</p>
                                 </a>
-                        </li>
-                        @endforeach
+                            </li>
+                            @endfor
+                        @endif
+                        @if ($categoryID == 4)
+                            @for ($i = 6; $i < 10; $i++)
+                            <li class="text-center category-list list-unstyled me-3">
+                                <a href={{ url('products/sub') . '/' . $subCategories[$i]->id }}>
+                                    <p>{{ $subCategories[$i]->sub_category }}</p>
+                                </a>
+                            </li>
+                            @endfor
+                        @endif
+                        
                     </ul>
                 </li>
             </div>

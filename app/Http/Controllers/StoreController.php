@@ -50,7 +50,13 @@ class StoreController extends Controller
         $categories = Category::all();
         $subCategories = SubCategory::all();
         $colors = Color::all();
-        $categoryID = "";
+        if (in_array($subCategoryID, [1, 2, 3, 4, 5, 6])) {
+            $categoryID = 1;
+        } else if (in_array($subCategoryID, [7, 8, 9, 10])) {
+            $categoryID = 4;
+        } else {
+            $categoryID = "";
+        }
 
         return view('products.catalog', [
             "products" => $products,
@@ -284,7 +290,7 @@ class StoreController extends Controller
             $product->description = $request->description;
             $product->stock = $request->stock;
             $product->harga = $request->harga;
-            $product->link_link_shopee = $request->link_shoope;
+            $product->link_shopee = $request->link_shoope;
             $product->link_tokopedia = $request->link_tokopedia;
             $product->save();
             Alert::success('Success', 'Product Edited Successfully');
