@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container mt-5">
+        <h2 class="text-center">Welcome Admin <span class="text-danger">{{ $admin->login_code }}</span></h2>
         <h2 class="text-center">Create New Product</h2>
         <div class="row">
             <div class="d-grid gap-2">

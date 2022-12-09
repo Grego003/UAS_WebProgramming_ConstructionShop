@@ -89,7 +89,7 @@
                 <li class="text-center categories list-unstyled pt-2">
                     <h4 class="mt-2">Kategori</h4>
                     <hr>
-                    <ul class="d-flex">
+                    <ul class="d-flex flex-wrap justify-content-between">
                         @foreach ($categories as $category)
                         <li class="text-center category-list list-unstyled me-3">
                                 <a href={{ url('products') . '/' . $category->id }}>
@@ -106,7 +106,7 @@
                 <li class="text-center categories list-unstyled">
                     <h4>Produk</h4>
                     <hr>
-                    <ul class="d-flex flex-wrap justify-content-center">
+                    <ul class="d-flex flex-wrap justify-content-evenly ">
                         @if ($categoryID == 1)
                             @for ($i = 0; $i < 6; $i++)
                             <li class="text-center category-list list-unstyled me-3">

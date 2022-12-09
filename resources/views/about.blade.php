@@ -35,8 +35,8 @@
 {{-- Review --}}
 
 <h2 class="text-center">Review Us</h2>
-<div class="form-review d-flex justify-content-center">
-    <form action="/review" class="col-lg-8" method="post">
+<div class="form-review row justify-content-center">
+    <form action="/review" class="col-xl-8" method="post">
         @csrf
         <div class="form-floating mb-3">
             <input type="text" class="form-control @error('name') is-invalid @enderror" id="floatingInput" name="name" placeholder="Name" value="{{old('name')}}">

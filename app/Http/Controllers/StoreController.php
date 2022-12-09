@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Product;
+use App\Models\User;
 use App\Models\Color;
+use App\Models\Product;
+use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class StoreController extends Controller
 {
@@ -77,9 +78,11 @@ class StoreController extends Controller
         if (!Gate::allows('only_admin')) {
             abort(403);
         }
+        $key = Auth::id();
+        $admin = User::findOrFail($key);
         $subCategory = SubCategory::all();
         $colors = Color::all();
-        return view('store.create', ['subCategory' => $subCategory, 'colors' => $colors]);
+        return view('store.create', ['subCategory' => $subCategory, 'colors' => $colors, 'admin' => $admin]);
     }
 
     /**
