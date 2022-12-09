@@ -17,6 +17,7 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('login_code');
             $table->boolean('role_id')->comment('1:admin, 2:member')->default(2);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

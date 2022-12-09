@@ -11,7 +11,7 @@
         @foreach ($errors->all() as $error)
             <p class="text-danger text-center">{{ $error }}</p>
         @endforeach
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="/login">
             @csrf
             <!-- Email Address -->
             <div>

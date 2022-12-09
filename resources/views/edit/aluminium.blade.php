@@ -3,6 +3,17 @@
 @section('content')
     <div class="container mt-5">
         <div class="row">
+            @if ($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="col-lg-6">
                 <img src="{{ Storage::url($product->src_img) }}" class="rounded img-fluid mx-auto d-block" alt="..."
                     height="100%" width="100%">
@@ -46,21 +57,23 @@
                     <div class="row mb-3 justify-content-around ms-2">
                         @foreach ($colors as $color)
                             <div class="form-check col-3">
-                                <input class="form-check-input" type="checkbox" name="color[]" {{ in_array($color->id, $mycolor) ? 'checked' : '' }} value="{{ $color->id }}" id="flexCheckDefault">
+                                <input class="form-check-input" type="checkbox" name="color[]"
+                                    {{ in_array($color->id, $mycolor) ? 'checked' : '' }} value="{{ $color->id }}"
+                                    id="flexCheckDefault">
                                 <label class="form-check-label" for="flexCheckDefault">
-                                  {{ $color->color_name }}
+                                    {{ $color->color_name }}
                                 </label>
-                              </div>
+                            </div>
                         @endforeach
                     </div>
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="inputGroupSelect01">Options</label>
                         <select class="form-select" id="inputGroupSelect01" name="sub_category"
-                            value="{{ old('sub_category') ?? $product->sub_category }}">
-                            <option selected>Sub Category</option>
+                            value="{{ old('sub_category') ?? $product->sub_category_id }}">
+                            <option>Sub Category</option>
                             @foreach ($subCategory as $sub)
                                 <option value="{{ $sub->id }}"
-                                    {{ $sub->id == $product->subcategory_id ? 'selected' : '' }}>{{ $sub->sub_category }}
+                                    {{ $sub->id == $product->sub_category_id ? 'selected' : '' }}>{{ $sub->sub_category }}
                                 </option>
                             @endforeach
                         </select>
@@ -83,3 +96,9 @@
         </div>
     </div>
 @endsection
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        $('.alert').alert()
+    })
+</script>
