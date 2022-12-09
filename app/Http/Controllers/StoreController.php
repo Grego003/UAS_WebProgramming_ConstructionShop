@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Models\Color;
-use App\Models\Product;
 use App\Models\Category;
+use App\Models\Product;
+use App\Models\Color;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
+use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
-use RealRashid\SweetAlert\Facades\Alert;
+use App\Models\User;
 
 class StoreController extends Controller
 {

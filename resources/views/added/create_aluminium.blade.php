@@ -22,7 +22,7 @@
         </div>
         <div class="mb-3">
             <label for="panjang" class="form-label">Panjang</label>
-            <input type="text" class="form-control @error('length') is-invalid @enderror" id="panjang" placeholder="Panjang" name="length" value="{{ old('length') }}">
+            <input type="number" class="form-control @error('length') is-invalid @enderror" id="panjang" placeholder="Panjang" name="length" value="{{ old('length') }}">
             @error('length')
                 <div  class="invalid-feedback">
                     {{ $message }}
