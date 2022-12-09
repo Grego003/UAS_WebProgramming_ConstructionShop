@@ -7,10 +7,10 @@
             <div class="mt-5 d-flex flex-column justify-content-center">
                 <div class="nav-categories d-flex justify-content-between align-items-center border">
                     <div class="d-flex justfiy-content-evenly align-items-center">
-                        <h1 class="text-end mt-2 me-3">Kategori</h1>
+                        <h1 class="text-end mt-2 px-4">Kategori</h1>
                     </div>
                     <hr />
-                    <ul class="d-flex justify-content-center">
+                    <ul class="d-flex justify-content-center mx-4">
                         @foreach ($categories as $category)
                             <li class="text-center category-list list-unstyled me-3 mt-4">
                                 <a href={{ url('products') . '/' . $category->id }}>
@@ -30,7 +30,7 @@
                 @if ($categoryID == 1 || $categoryID == 4 || !$subCategoryID == '')
                     <div class="d-flex justify-content-center">
                         <li class="text-center categories list-unstyled">
-                            <h4>Produk / Sub-Kategori</h4>
+                            <h4>Sub-Kategori</h4>
                             <hr>
                             <ul class="d-flex flex-wrap justify-content-center">
                                 @if (!$categoryID == '')
@@ -60,7 +60,7 @@
         <div class="catalog">
             <div class="container">
                 @if ($products->isEmpty())
-                    <h2 class="text-center">Barang Sedang Kosong!</h2>
+                    <h3 class="text-center">Barang Sedang Kosong!</h3>
                 @endif
                 <div class="row catalog-page">
                     @foreach ($products as $product)

@@ -55,7 +55,7 @@
     <!-- Top Bar End -->
 
     {{-- navbar md --}}
-        <div class="d-xxl-none d-lg-none text-white">
+        {{-- <div class="d-xxl-none d-lg-none text-white">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
                 <div class="container-fluid">
                   <a class="navbar-brand" href="/dashboard">Nusa Karya Utama</a>
@@ -77,11 +77,12 @@
                   </div>
                 </div>
               </nav>
-        </div>
+        </div> --}}
     {{-- end navbar md --}}
 
     <!-- Nav Bar Start -->
-    <div class="nav-bar d-none d-xxl-block d-lg-block ">
+    <div class="nav-bar"> 
+        {{--  d-none d-xxl-block d-lg-block  --}}
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
                 <a href="/dashboard" class="navbar-brand">Nusa Karya Utama</a>
@@ -124,7 +125,7 @@
                                 </form>
                             @endauth
                         </div>
-                    @endif
+                    @endif  
                 </div>
             </nav>
         </div>
