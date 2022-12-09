@@ -38,7 +38,7 @@
                     {{ __('Remember me') }}
                 </label>
             </div>
-
+     <!-- Remember Me -->
             <div class="d-flex justify-content-end mt-4">
                 @if (Route::has('password.request'))
                     <a class="text-muted" href="{{ route('password.request') }}" style="margin-right: 15px; margin-top: 15px;">
