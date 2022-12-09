@@ -18,7 +18,6 @@
                 <x-label for="email" :value="__('Email')" />
 
                 <x-input id="email" class="" type="email" name="email" :value="old('email')" required autofocus />
-              
             </div>
 
             <!-- Password -->
@@ -39,7 +38,7 @@
                     {{ __('Remember me') }}
                 </label>
             </div>
-
+     <!-- Remember Me -->
             <div class="d-flex justify-content-end mt-4">
                 @if (Route::has('password.request'))
                     <a class="text-muted" href="{{ route('password.request') }}" style="margin-right: 15px; margin-top: 15px;">

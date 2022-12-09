@@ -32,5 +32,39 @@
     </div>
 </div>
 <!-- About End -->
+<h2 class="text-center">Review Us</h2>
+<div class="form-review d-flex justify-content-center">
+    <form action="/review" class="col-md-8" method="post">
+        @csrf
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control @error('name') is-invalid @enderror" id="floatingInput" name="name" placeholder="Name" value="{{old('name')}}">
+            <label for="floatingInput">Name</label>
+            @error('name')
+            <div  class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control @error('email') is-invalid @enderror" id="floatingInput" name="email" placeholder="email" value="{{old('email')}}">
+            <label for="floatingInput">Email</label>
+            @error('email')
+            <div  class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+        <div class="form-floating">
+            <textarea class="form-control @error('comment') is-invalid @enderror" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="comment">{{old('comment')}}</textarea>
+            <label for="floatingTextarea2">Comments</label>
+            @error('comment')
+            <div  class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+          <button type="submit" class="btn btn-warning m-auto mt-2">Submit</button>
+    </form>
+</div>
 </div>
 @endsection
