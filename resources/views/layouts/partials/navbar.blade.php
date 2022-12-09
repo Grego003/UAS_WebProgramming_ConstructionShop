@@ -54,23 +54,49 @@
     </div>
     <!-- Top Bar End -->
 
+    {{-- navbar md --}}
+        <div class="d-xxl-none d-lg-none text-white">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="/dashboard">Nusa Karya Utama</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href={{ url('dashboard') }}>Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href={{ url('about') }}>About</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href={{ url('stores') }}>Catalog</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+        </div>
+    {{-- end navbar md --}}
+
     <!-- Nav Bar Start -->
-    <div class="nav-bar">
+    <div class="nav-bar d-none d-xxl-block d-lg-block ">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-                <a href="#" class="navbar-brand">MENU</a>
+                <a href="/dashboard" class="navbar-brand">Nusa Karya Utama</a>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
-                    <div class="navbar-nav mr-auto">
+                    <div class="navbar-nav mr-auto ">
                         <a href={{ url('dashboard') }} class="nav-item nav-link" aria-current="page">Home</a>
                         <a href={{ url('about') }} class="nav-item nav-link">About</a>
                         <a href={{ url('stores') }} class="nav-item nav-link">Catalog</a>
-                        <a href="#" class="nav-item nav-link">Aluminium</a>
-                        <a href="#" class="nav-item nav-link">Kaca</a>
-                        <a href="#" class="nav-item nav-link">Stainless</a>
+                        <a href="{{ url('products/1') }}" class="nav-item nav-link">Aluminium</a>
+                        <a href="{{ url('products/2') }}" class="nav-item nav-link">Kaca</a>
+                        <a href="{{ url('products/3') }}" class="nav-item nav-link">Stainless</a>
                         <div class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Aksesoris
@@ -81,7 +107,7 @@
                               <a class="dropdown-item" href="#">Siku</a>
                               <a class="dropdown-item" href="#">Bracket</a>
                             </div>
-                          </div>
+                        </div>
                         @can('only_admin')
                           <a href={{ route('stores.create') }} class="nav-item nav-link btn btn-danger border-0 text-light rounded mx-3">Admin</a>
                         @endcan
@@ -94,13 +120,6 @@
                                     @csrf
                                     <button type="submit" class="btn btn-info text-dark rounded border-0">Logout</button>
                                 </form>
-                            @else
-                                <a href="{{ route('login') }}"
-                                    class="text-sm btn btn-light text-dark text-decoration-none rounded">Log in</a>
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}"
-                                        class="text-sm btn btn-light text-dark text-decoration-none rounded">Register</a>
-                                @endif
                             @endauth
                         </div>
                     @endif

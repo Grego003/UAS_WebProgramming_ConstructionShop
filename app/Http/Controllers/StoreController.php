@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Product;
+use App\Models\User;
 use App\Models\Color;
+use App\Models\Product;
+use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class StoreController extends Controller
 {
@@ -23,7 +24,7 @@ class StoreController extends Controller
         if ($categoryID == '') {
             $products = Product::paginate(9);
         } else {
-            $products = Product::where('category_id', $categoryID)->paginate(9);
+            $products = Product::where('category_id', $categoryID)->with(['category', 'color'])->paginate(9);
         }
         $categories = Category::all();
         $subCategories = SubCategory::all();
@@ -45,12 +46,18 @@ class StoreController extends Controller
         if ($subCategoryID == '') {
             $products = Product::paginate(9);
         } else {
-            $products = Product::where('sub_category_id', $subCategoryID)->paginate(9);
+            $products = Product::where('sub_category_id', $subCategoryID)->with(['category', 'color'])->paginate(9);
         }
         $categories = Category::all();
         $subCategories = SubCategory::all();
         $colors = Color::all();
-        $categoryID = "";
+        if (in_array($subCategoryID, [1, 2, 3, 4, 5, 6])) {
+            $categoryID = 1;
+        } else if (in_array($subCategoryID, [7, 8, 9, 10])) {
+            $categoryID = 4;
+        } else {
+            $categoryID = "";
+        }
 
         return view('products.catalog', [
             "products" => $products,
@@ -71,9 +78,11 @@ class StoreController extends Controller
         if (!Gate::allows('only_admin')) {
             abort(403);
         }
+        $key = Auth::id();
+        $admin = User::findOrFail($key);
         $subCategory = SubCategory::all();
         $colors = Color::all();
-        return view('store.create', ['subCategory' => $subCategory, 'colors' => $colors]);
+        return view('store.create', ['subCategory' => $subCategory, 'colors' => $colors, 'admin' => $admin]);
     }
 
     /**
@@ -90,11 +99,11 @@ class StoreController extends Controller
         if ($request->category_id == 1) {
             $this->validate($request, [
                 'product_name' => 'required|max:255',
-                'code' => 'max:255|unique:products',
+                'code' => 'max:5|unique:products',
                 'category_id' => 'required',
                 'length' => 'regex:/^(([0-9]*)(\.([0-9]+))?)$/',
                 'sub_category' => 'required',
-                'image' => 'image|file|max:1024'
+                'image' => 'required|image|file|max:1024'
             ]);
             $product = new Product();
             $product->product_name = $request->product_name;
@@ -103,7 +112,7 @@ class StoreController extends Controller
             $product->length = $request->length;
             $product->sub_category_id = $request->sub_category;
             if ($request->img) {
-                $path = $request->file('img')->storePublicly('images', 'public');
+                $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
             }
             $product->save();
@@ -115,7 +124,7 @@ class StoreController extends Controller
             ]);
             $product = new Product();
             $product->category_id = $request->category_id;
-            $path = $request->file('img')->storePublicly('images', 'public');
+            $path = $request->file('img')->storePublicly('asset', 'public');
             $product->src_img = $path;
             $product->save();
         } else if ($request->category_id == 3) {
@@ -128,7 +137,7 @@ class StoreController extends Controller
             $product->product_name = $request->product_name;
             $product->category_id = $request->category_id;
             if ($request->img) {
-                $path = $request->file('img')->storePublicly('images', 'public');
+                $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
             }
             $product->save();
@@ -138,13 +147,14 @@ class StoreController extends Controller
                 'img' => 'image|file|max:1024',
                 'category_id' => 'required',
                 'description' => 'max:300',
+                'link_tokopedia' => 'regex:(?<=\/)[\w\-.]+(?=(\?|(\s*)$|(\/)$))'
             ]);
             // dd($request);
             $product = new Product();
             $product->product_name = $request->product_name;
             $product->category_id = $request->category_id;
             if ($request->img) {
-                $path = $request->file('img')->storePublicly('images', 'public');
+                $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
             }
             $product->description = $request->description;
@@ -154,7 +164,7 @@ class StoreController extends Controller
             $product->link_tokopedia = $request->link_tokopedia;
             $product->save();
         } else {
-            abort(404);
+            return redirect();
         }
         Alert::success('Success', 'New product added successfully');
         return redirect()->back();
@@ -218,11 +228,12 @@ class StoreController extends Controller
         if ($request->category_id == 1) {
             $this->validate($request, [
                 'product_name' => 'required|max:255',
-                'code' => "max:255|unique:products,code,{$id}",
+                'code' => "max:5|unique:products,code,{$id}",
                 'category_id' => 'required',
                 'length' => 'regex:/^(([0-9]*)(\.([0-9]+))?)$/',
                 'sub_category' => 'required',
-                'image' => 'image|file|max:1024'
+                'image' => 'image|file|max:1024',
+                'link_tokopedia' => 'regex:(?<=\/)[\w\-.]+(?=(\?|(\s*)$|(\/)$))'
             ]);
             $product = Product::findOrFail($id);
             $product->product_name = $request->product_name;
@@ -231,7 +242,7 @@ class StoreController extends Controller
             $product->length = $request->length;
             $product->sub_category_id = $request->sub_category;
             if ($request->img) {
-                $path = $request->file('img')->storePublicly('images', 'public');
+                $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
             }
             $product->save();
@@ -246,7 +257,7 @@ class StoreController extends Controller
             $product = Product::findOrFail($id);
             $product->category_id = $request->category_id;
             if ($request->img) {
-                $path = $request->file('img')->storePublicly('images', 'public');
+                $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
             }
             $product->save();
@@ -261,7 +272,7 @@ class StoreController extends Controller
             $product->product_name = $request->product_name;
             $product->category_id = $request->category_id;
             if ($request->img) {
-                $path = $request->file('img')->storePublicly('images', 'public');
+                $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
             }
             $product->save();
@@ -278,13 +289,13 @@ class StoreController extends Controller
             $product->product_name = $request->product_name;
             $product->category_id = $request->category_id;
             if ($request->img) {
-                $path = $request->file('img')->storePublicly('images', 'public');
+                $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
             }
             $product->description = $request->description;
             $product->stock = $request->stock;
             $product->harga = $request->harga;
-            $product->link_link_shopee = $request->link_shoope;
+            $product->link_shopee = $request->link_shoope;
             $product->link_tokopedia = $request->link_tokopedia;
             $product->save();
             Alert::success('Success', 'Product Edited Successfully');
