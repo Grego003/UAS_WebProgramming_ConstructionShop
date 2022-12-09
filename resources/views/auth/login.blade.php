@@ -36,7 +36,7 @@
                 <input id="remember_me" type="checkbox" class="form-check-input" name="remember">
                 <label for="remember_me" class="form-check-label text-sm">
                     {{ __('Remember me') }}
-                </label>
+                </label> 
             </div>
 
             <div class="d-flex justify-content-end mt-4">
