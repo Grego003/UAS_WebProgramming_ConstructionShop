@@ -11,7 +11,7 @@
         @foreach ($errors->all() as $error)
             <p class="text-danger text-center">{{ $error }}</p>
         @endforeach
-        <form method="POST" action="{{ route('login') }}">
+        <form method="POST" action="/login">
             @csrf
             <!-- Email Address -->
             <div>
@@ -46,6 +46,9 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
+                    <a class="text-muted" href="{{ route('register') }}" style="margin-right: 15px; margin-top: 15px;">
+                        {{ __('Haven\'t register yet?') }}
+                    </a>
 
                 <x-button class="ml-3">
                     {{ __('Log in') }}

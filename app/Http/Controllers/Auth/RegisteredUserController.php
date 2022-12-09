@@ -18,8 +18,12 @@ class RegisteredUserController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function create()
+    public function create($key)
     {
+        $all = User::all();
+        if (!$all->isEmpty()) {
+            $user = User::where('login_code', $key)->firstOrFail();
+        }
         return view('auth.register');
     }
 
@@ -33,6 +37,8 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request)
     {
+        // dd($request);
+        $randCode = random_int(10000, 99999);
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
@@ -42,6 +48,7 @@ class RegisteredUserController extends Controller
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'login_code' => $randCode,
             'password' => Hash::make($request->password),
         ]);
 

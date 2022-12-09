@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\Models\Product;
+use App\Models\User;
 use App\Models\Color;
+use App\Models\Product;
+use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
-use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class StoreController extends Controller
 {
@@ -77,9 +78,11 @@ class StoreController extends Controller
         if (!Gate::allows('only_admin')) {
             abort(403);
         }
+        $key = Auth::id();
+        $admin = User::findOrFail($key);
         $subCategory = SubCategory::all();
         $colors = Color::all();
-        return view('store.create', ['subCategory' => $subCategory, 'colors' => $colors]);
+        return view('store.create', ['subCategory' => $subCategory, 'colors' => $colors, 'admin' => $admin]);
     }
 
     /**
@@ -96,11 +99,11 @@ class StoreController extends Controller
         if ($request->category_id == 1) {
             $this->validate($request, [
                 'product_name' => 'required|max:255',
-                'code' => 'max:255|unique:products',
+                'code' => 'max:5|unique:products',
                 'category_id' => 'required',
                 'length' => 'regex:/^(([0-9]*)(\.([0-9]+))?)$/',
                 'sub_category' => 'required',
-                'image' => 'image|file|max:1024'
+                'image' => 'required|image|file|max:1024'
             ]);
             $product = new Product();
             $product->product_name = $request->product_name;
@@ -144,6 +147,7 @@ class StoreController extends Controller
                 'img' => 'image|file|max:1024',
                 'category_id' => 'required',
                 'description' => 'max:300',
+                'link_tokopedia' => 'regex:(?<=\/)[\w\-.]+(?=(\?|(\s*)$|(\/)$))'
             ]);
             // dd($request);
             $product = new Product();
@@ -160,7 +164,7 @@ class StoreController extends Controller
             $product->link_tokopedia = $request->link_tokopedia;
             $product->save();
         } else {
-            abort(404);
+            return redirect();
         }
         Alert::success('Success', 'New product added successfully');
         return redirect()->back();
@@ -224,11 +228,12 @@ class StoreController extends Controller
         if ($request->category_id == 1) {
             $this->validate($request, [
                 'product_name' => 'required|max:255',
-                'code' => "max:255|unique:products,code,{$id}",
+                'code' => "max:5|unique:products,code,{$id}",
                 'category_id' => 'required',
                 'length' => 'regex:/^(([0-9]*)(\.([0-9]+))?)$/',
                 'sub_category' => 'required',
-                'image' => 'image|file|max:1024'
+                'image' => 'image|file|max:1024',
+                'link_tokopedia' => 'regex:(?<=\/)[\w\-.]+(?=(\?|(\s*)$|(\/)$))'
             ]);
             $product = Product::findOrFail($id);
             $product->product_name = $request->product_name;

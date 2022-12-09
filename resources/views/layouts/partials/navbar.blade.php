@@ -54,11 +54,37 @@
     </div>
     <!-- Top Bar End -->
 
+    {{-- navbar md --}}
+        <div class="d-xxl-none d-lg-none text-white">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="/dashboard">Nusa Karya Utama</a>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav">
+                      <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href={{ url('dashboard') }}>Home</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href={{ url('about') }}>About</a>
+                      </li>
+                      <li class="nav-item">
+                        <a class="nav-link" href={{ url('stores') }}>Catalog</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </nav>
+        </div>
+    {{-- end navbar md --}}
+
     <!-- Nav Bar Start -->
-    <div class="nav-bar">
+    <div class="nav-bar d-none d-xxl-block d-lg-block ">
         <div class="container-fluid">
             <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
-                <a href="#" class="navbar-brand">Nusa Karya Utama</a>
+                <a href="/dashboard" class="navbar-brand">Nusa Karya Utama</a>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -92,17 +118,10 @@
                     @if (Route::has('login'))
                         <div class="hidden fixed top-0 right-0 px-6 py-1 sm:block">
                             @auth
-                                <form action="logout" method="POST" class="ms-auto">
+                                <form action={{url("logout")}} method="POST" class="ms-auto">
                                     @csrf
                                     <button type="submit" class="btn btn-light text-dark rounded border-0">Logout</button>
                                 </form>
-                            @else
-                                <a href="{{ route('login') }}"
-                                    class="text-sm btn btn-light text-dark text-decoration-none rounded">Log in</a>
-                                @if (Route::has('register'))
-                                    <a href="{{ route('register') }}"
-                                        class="text-sm btn btn-light text-dark text-decoration-none rounded">Register</a>
-                                @endif
                             @endauth
                         </div>
                     @endif

@@ -233,8 +233,7 @@
         <h2 class="mb-2">Lokasi Kami</h2>
         <p>Jangan ragu untuk menghubungi kontak kami untuk mendapatkan informasi lebih detail mengenai jasa yang kami berikan. <br> Anda juga dapat langsung mendatangi lokasi kami berikut ini</p>
     </div>
-
-    <div class="mapouter mx-auto"><div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=800&amp;height=400&amp;hl=en&amp;q=Jl. H. Nawi Raya No.1, RT.1/RW.2&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://formatjson.org/word-counter">Word Counter</a></div><style>.mapouter{position:relative;text-align:right;width:800px;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:800px;height:400px;}.gmap_iframe {width:800px!important;height:400px!important;}</style></div>
+        <div class="mapouter mx-auto" ><div class="gmap_canvas map-responsive"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=800&amp;height=400&amp;hl=en&amp;q=Jl. H. Nawi Raya No.1, RT.1/RW.2&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://formatjson.org/word-counter">Word Counter</a></div><style>.mapouter{position:relative;text-align:right;width:800px;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:800px;height:400px;}.gmap_iframe {width:800px!important;height:400px!important;}</style></div>
 </div>
 <!-- Location End-->
 

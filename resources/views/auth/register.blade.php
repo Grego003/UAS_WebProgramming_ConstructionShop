@@ -11,7 +11,7 @@
             <a href="/" class="text-center text-decoration-none text-dark fs-2 fw-bold">Register</a>
         </center>
         {{-- <x-auth-validation-errors class="mb-4" :errors="$errors" /> --}}
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="/register">
             @csrf
 
             <!-- Name -->
