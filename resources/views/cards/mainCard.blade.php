@@ -8,7 +8,7 @@
         </div>
         <div class="catalog-title">
             <h3>{{ $product->product_name }}</h3>
-            <a class="code" href="">{{ $product->code }}</a>
+            <a class="code">{{ $product->code }}</a>
         </div>
         @if ($categoryID == 1 || $product->category_id == 1)
         <div class="catalog-text">
@@ -30,12 +30,17 @@
                 </form>
                 @endcan
                 @if ($categoryID == 4)    
-                <div class="d-flex justify-content-between align-items-center">
-                    <small class="text">Price : Rp. {{ $product->harga }}</small>
-                    <small class="text">Stock : {{ $product->stock }} </small>
+                <div class="priceStock my-3 p-2 d-flex justify-content-between align-items-center">
+                    <small class="text">Rp{{ $product->harga }}</small>
+                    <small class="text">Stock: {{ $product->stock }} </small>
                 </div>
-                <div class="d-flex">
-                    <a href="{{ $product->link_tokopedia }}" style="background-color: #03AC0E" class="btn ms-auto text-white">Buy Now</a>
+                <div class="catalog-shop-link d-flex">
+                    @if ($product->link_tokopedia != null)
+                        <a href="{{ $product->link_tokopedia }}" style="background-color: #03AC0E" class="btn mx-auto text-white">Buy from Tokopedia</a>
+                    @endif
+                    @if ($product->link_shopee != null)
+                        <a href="{{ $product->link_shopee }}" style="background-color: #EE4D2D	" class="btn mx-auto text-white">Buy from Shopee</a>
+                    @endif
                 </div>
                 @endif
         </div>

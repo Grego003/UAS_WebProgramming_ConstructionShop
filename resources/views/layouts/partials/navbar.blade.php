@@ -65,23 +65,25 @@
 
                 <div class="collapse navbar-collapse justify-content-between" id="navbarNavDropdown">
                     <div class="navbar-nav mr-auto">
-                        <a href={{ url('dashboard') }} class="nav-item nav-link" aria-current="page">Home</a>
+                        <a href={{ url('dashboard') }} class="nav-item nav-link">Home</a>
                         <a href={{ url('about') }} class="nav-item nav-link">About</a>
                         <a href={{ url('stores') }} class="nav-item nav-link">Catalog</a>
+                        <div class="nav-catalog-items d-flex flex-row mx-3 ps-2">
                         <a href="{{ url('products/1') }}" class="nav-item nav-link">Aluminium</a>
                         <a href="{{ url('products/2') }}" class="nav-item nav-link">Kaca</a>
                         <a href="{{ url('products/3') }}" class="nav-item nav-link">Stainless</a>
                         <div class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="{{ url('products/4') }}" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                               Aksesoris
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                              <a class="dropdown-item" href="#">Kunci</a>
-                              <a class="dropdown-item" href="#">Plat</a>
-                              <a class="dropdown-item" href="#">Siku</a>
-                              <a class="dropdown-item" href="#">Bracket</a>
+                              <a class="dropdown-item" href="{{ url('products/sub/7') }}">Kunci</a>
+                              <a class="dropdown-item" href="{{ url('products/sub/8') }}">Plat</a>
+                              <a class="dropdown-item" href="{{ url('products/sub/9') }}">Siku</a>
+                              <a class="dropdown-item" href="{{ url('products/sub/10') }}">Bracket</a>
                             </div>
                         </div>
+                    </div>
                         @can('only_admin')
                           <a href={{ route('stores.create') }} class="nav-item nav-link btn btn-danger border-0 text-light rounded mx-3">Admin</a>
                         @endcan
@@ -92,7 +94,7 @@
                             @auth
                                 <form action="logout" method="POST" class="ms-auto">
                                     @csrf
-                                    <button type="submit" class="btn btn-info text-dark rounded border-0">Logout</button>
+                                    <button type="submit" class="btn btn-light text-dark rounded border-0">Logout</button>
                                 </form>
                             @else
                                 <a href="{{ route('login') }}"

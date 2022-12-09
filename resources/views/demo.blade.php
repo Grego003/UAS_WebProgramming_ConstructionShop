@@ -13,7 +13,7 @@
             <div class="carousel-item active">
                 <img src="{{ asset('images/construction_assets/Kaca/Kaca Canopi PT8mm.jpeg') }}" alt="Carousel Image">
                 <div class="carousel-caption">
-                    <p class="animated fadeInRight">40 tahun pengalaman di</p>
+                    <p class="animated fadeInRight">20 tahun pengalaman di</p>
                     <h1 class="animated fadeInLeft">Bidang Konstruksi</h1>
                     <a class="btn animated fadeInUp" href="{{ url('stores') }}">Produk Kami</a>
                 </div>
@@ -128,18 +128,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card wow fadeInLeft" data-wow-delay="0.4s">
-                        <div class="card-header">
-                            <a class="card-link collapsed" data-bs-toggle="collapse" href="#collapseFour">
-                                Lorem ipsum dolor sit amet?
-                            </a>
-                        </div>
-                        <div id="collapseFour" class="collapse" data-parent="#accordion-1">
-                            <div class="card-body">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
             <div class="col-md-6">
@@ -175,18 +163,6 @@
                             </a>
                         </div>
                         <div id="collapseEight" class="collapse" data-parent="#accordion-2">
-                            <div class="card-body">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card wow fadeInRight" data-wow-delay="0.4s">
-                        <div class="card-header">
-                            <a class="card-link collapsed" data-bs-toggle="collapse" href="#collapseNine">
-                                Lorem ipsum dolor sit amet?
-                            </a>
-                        </div>
-                        <div id="collapseNine" class="collapse" data-parent="#accordion-2">
                             <div class="card-body">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
                             </div>
@@ -248,51 +224,11 @@
 </div>
 <!-- Fact End -->
 
-{{-- Review Start --}}
-<div class="review">
-    <h2 class="text-center">Testimonials</h2>
-    <div class="row justify-content-around">
-        @foreach ($reviews as $review)
-            <div class="col-lg-3">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="image d-flex align-items-center mb-2">
-                            {{-- <img class="img-fluid rounded-circle" width="100px" height="100px"
-                                src="{{ asset('images/profil-default.png') }}" alt="" srcset=""> --}}
-                            <h5 class="card-title ms-2">{{ $review->name }}</h5>
-                        </div>
-                        <p>{{ $review->comment }}</p>
-                        <div class="d-flex">
-                            <div class="d-flex">
-                                @for ($i = 0; $i < $review->review; $i++)
-                                <h4 class="text-warning me-2"><i class="bi bi-star-fill"></i></h4>
-                                @endfor                            
-                                @for ($i = 0; $i < 5 - $review->review; $i++)
-                                <h4 class="text-warning me-2"><i class="bi bi-star"></i></h4>
-                                @endfor                            
-                            </div>
-                            <div class="ms-auto">
-                                @can('only_admin', $review)                    
-                                    <form class="d-inline" action="/review/{{ $review->id }}" method="post" id="del{{ $review->id }}">
-                                        @method('DELETE')
-                                        @csrf
-                                        <button style="border: 0pt" class="badge rounded-pill bg-danger" data-id="del{{ $review->id }}"  onclick="confirmDelete(event)" >Delete</button>
-                                    </form>
-                                @endcan
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        @endforeach
-    </div>
-</div>
-
 
 {{-- Review End --}}
 
 <!-- Location Start -->
-<div class="location d-flex flex-column justify-content-center">
+<div class="location d-flex flex-column justify-content-center wow fadeInLeft" data-wow-delay="0.2s">
     <div class="section-header text-center mt-5">
         <h2 class="mb-2">Lokasi Kami</h2>
         <p>Jangan ragu untuk menghubungi kontak kami untuk mendapatkan informasi lebih detail mengenai jasa yang kami berikan. <br> Anda juga dapat langsung mendatangi lokasi kami berikut ini</p>
@@ -301,6 +237,49 @@
     <div class="mapouter mx-auto"><div class="gmap_canvas"><iframe class="gmap_iframe" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?width=800&amp;height=400&amp;hl=en&amp;q=Jl. H. Nawi Raya No.1, RT.1/RW.2&amp;t=&amp;z=17&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"></iframe><a href="https://formatjson.org/word-counter">Word Counter</a></div><style>.mapouter{position:relative;text-align:right;width:800px;height:400px;}.gmap_canvas {overflow:hidden;background:none!important;width:800px;height:400px;}.gmap_iframe {width:800px!important;height:400px!important;}</style></div>
 </div>
 <!-- Location End-->
+
+ <!-- Testimonial Start -->
+ <div class="testimonial wow fadeIn" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="testimonial-slider-nav">
+                    Testimonials
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <div class="testimonial-slider">
+                    @foreach ($reviews as $review)
+                    <div class="slider-item">
+                        <h3>{{ $review->name }}</h3>
+                        <h4>{{ $review->email }}</h4>
+                        <div class="slider-nav">
+                            @for ($i = 0; $i < $review->review; $i++)
+                                <h4 class="text-warning me-2"><i class="bi bi-star-fill"></i></h4>
+                            @endfor                            
+                            @for ($i = 0; $i < 5 - $review->review; $i++)
+                                <h4 class="text-warning me-2"><i class="bi bi-star"></i></h4>
+                            @endfor   
+                        </div>
+                        <p>{{ $review->comment }}</p>
+                        @can('only_admin', $review)                    
+                            <form class="d-inline" action="/review/{{ $review->id }}" method="post" id="del{{ $review->id }}">
+                                @method('DELETE')
+                                @csrf
+                                <button style="border: 0pt" class="badge rounded-pill bg-danger" data-id="del{{ $review->id }}"  onclick="confirmDelete(event)" >Delete</button>
+                            </form>
+                        @endcan
+                    </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Testimonial End -->
+
 
 </div><!-- /.container -->
 

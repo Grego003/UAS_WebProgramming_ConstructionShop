@@ -5,9 +5,8 @@
             <div class="col-md-6 col-lg-3">
                 <div class="footer-contact">
                     <h2>Office Contact</h2>
-                    <p><i class="fa fa-map-marker-alt"></i>Jl. H. Nawi Raya No.1, RT.1/RW.2, Gandaria Utara, Kec. Cilandak, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12420</p>
                     <p><i class="fa fa-phone-alt"></i>089676761828</p>
-                    <p><i class="fa fa-envelope"></i>nusakaryautama@company.com</p>
+                    <p><i class="fa fa-envelope"></i>leeman@gmail.com</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
@@ -22,21 +21,18 @@
             <div class="col-md-6 col-lg-3">
                 <div class="footer-link">
                     <h2>Pages</h2>
+                    <a href="{{ url('dashboard') }}">Home</a>
                     <a href="{{ url('about') }}">About</a>
                     <a href="{{ url('stores') }}">Catalog</a>
-                    <a href="{{ url('contact') }}">Contact Us</a>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">
                 <div class="newsletter">
-                    <h2>Newsletter</h2>
+                    <h2>Location</h2>
                     <p>
-                        Kami juga menyediakan layanan melalui Email. Isi form email berikut ini
+                        <p><i class="fa fa-map-marker-alt me-2"></i>Jl. H. Nawi Raya No.1, RT.1/RW.2, Gandaria Utara, Kec. Cilandak, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12420</p>
                     </p>
-                    <div class="form">
-                        <input class="form-control" placeholder="Email here">
-                        <button class="btn">Submit</button>
-                    </div>
+
                 </div>
             </div>
         </div>

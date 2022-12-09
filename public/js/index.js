@@ -35,8 +35,23 @@
         $(window).resize(toggleNavbarMethod);
     });
 
-    //GABISAAAA WHYYY
-    $(".dropdown-toggle").dropdown();
+    // Testimonial Slider
+    $('.testimonial-slider').slick({
+        infinite: true,
+        autoplay: true,
+        arrows: true,
+        dots: false,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        asNavFor: '.testimonial-slider-nav'
+    });
+    $('.testimonial-slider-nav').slick({
+        arrows: false,
+        dots: false,
+        focusOnSelect: false,
+        centerMode: false,
+        asNavFor: '.testimonial-slider'
+    });
 
     // Blogs carousel
     $(".related-slider").owlCarousel({
