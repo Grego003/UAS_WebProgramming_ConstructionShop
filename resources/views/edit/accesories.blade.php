@@ -3,8 +3,20 @@
 @section('content')
     <div class="container">
         <div class="row">
+            @if ($errors->any())
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="col-md-6">
-                <img src="{{ Storage::url($product->src_img) }}" class="rounded mx-auto d-block" height="100%" width="100%">
+                <img src="{{ Storage::url($product->src_img) }}" class="rounded mx-auto d-block" height="100%"
+                    width="100%">
             </div>
             <div class="col-md-6 d-flex align-items-center">
                 <form action="/stores/{{ $product->id }}" method="post" enctype="multipart/form-data">
@@ -47,9 +59,11 @@
                             <label for="basic-url" class="form-label">Harga</label>
                             <div class="input-group mb-3">
                                 <span class="input-group-text" id="basic-addon3">Rp.</span>
-                                <input type="number" class="form-control @error('stock') is-invalid @enderror" id="basic-url" name="harga" aria-describedby="basic-addon3" value="{{ old('harga') ?? $product->harga }}">
+                                <input type="number" class="form-control @error('stock') is-invalid @enderror"
+                                    id="basic-url" name="harga" aria-describedby="basic-addon3"
+                                    value="{{ old('harga') ?? $product->harga }}">
                                 @error('harga')
-                                    <div  class="invalid-feedback">
+                                    <div class="invalid-feedback">
                                         {{ $message }}
                                     </div>
                                 @enderror
@@ -57,10 +71,11 @@
                         </div>
                         <div class="col-6">
                             <label for="stock" class="form-label">Stock</label>
-                            <input type="number" class="form-control @error('stock') is-invalid @enderror" id="stock" name="stock"  value="{{ old('stock') ?? $product->stock }}">    
+                            <input type="number" class="form-control @error('stock') is-invalid @enderror" id="stock"
+                                name="stock" value="{{ old('stock') ?? $product->stock }}">
                             @error('stock')
-                                <div  class="invalid-feedback">
-                                     {{ $message }}
+                                <div class="invalid-feedback">
+                                    {{ $message }}
                                 </div>
                             @enderror
                         </div>
@@ -103,3 +118,9 @@
         </div>
     </div>
 @endsection
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        $('.alert').alert()
+    })
+</script>

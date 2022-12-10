@@ -19,34 +19,44 @@ class SubCategorySeeder extends Seeder
 
         $categories_data = [
             [
-                'sub_category' => "Kusen"
+                'sub_category' => "Kusen",
+                'category_id' => '1'
             ],
             [
-                'sub_category' => "Jendela Casement"
+                'sub_category' => "Jendela Casement",
+                'category_id' => '1'
             ],
             [
-                'sub_category' => "Jendela Sliding"
+                'sub_category' => "Jendela Sliding",
+                'category_id' => '1'
             ],
             [
-                'sub_category' => "Pintu Sliding"
+                'sub_category' => "Pintu Sliding",
+                'category_id' => '1'
             ],
             [
-                'sub_category' => "Pintu Lipat"
+                'sub_category' => "Pintu Lipat",
+                'category_id' => '1'
             ],
             [
-                'sub_category' => "Pintu Stopper"
+                'sub_category' => "Pintu Stopper",
+                'category_id' => '1'
             ],
             [
-                'sub_category' => "Kunci"
+                'sub_category' => "Kunci",
+                'category_id' => '4'
             ],
             [
-                'sub_category' => "Siku"
+                'sub_category' => "Siku",
+                'category_id' => '4'
             ],
             [
-                'sub_category' => "Plat"
+                'sub_category' => "Plat",
+                'category_id' => '4'
             ],
             [
-                'sub_category' => "Bracket"
+                'sub_category' => "Bracket",
+                'category_id' => '4'
             ],
         ];
 
