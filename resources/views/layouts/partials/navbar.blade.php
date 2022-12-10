@@ -6,7 +6,7 @@
                 <div class="col-lg-4 col-md-12">
                     <div class="logo">
                         <a href="#">
-                            <img src="{{ asset('images/logo_nusa_karya.png')}}">
+                            <img src="{{ asset('images/logo_nusa_karya.png') }}">
                             <h1>Nusa Karya Utama</h1>
                         </a>
                     </div>
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="top-bar-item">  
+                            <div class="top-bar-item">
                                 <div class="top-bar-icon">
                                     <i class="flaticon-send-mail"></i>
                                 </div>
@@ -55,7 +55,7 @@
     <!-- Top Bar End -->
 
     {{-- navbar md --}}
-        {{-- <div class="d-xxl-none d-lg-none text-white">
+    {{-- <div class="d-xxl-none d-lg-none text-white">
             <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
                 <div class="container-fluid">
                   <a class="navbar-brand" href="/dashboard">Nusa Karya Utama</a>
@@ -81,12 +81,14 @@
     {{-- end navbar md --}}
 
     <!-- Nav Bar Start -->
-    <div class="nav-bar"> 
+    <div class="nav-bar">
         {{--  d-none d-xxl-block d-lg-block  --}}
         <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+            <nav class="navbar navbar-expand-xl bg-dark navbar-dark">
                 <a href="/dashboard" class="navbar-brand">Nusa Karya Utama</a>
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
@@ -96,36 +98,39 @@
                         <a href={{ url('about') }} class="nav-item nav-link">About</a>
                         <a href={{ url('stores') }} class="nav-item nav-link">Catalog</a>
                         <div class="nav-catalog-items d-flex flex-row mx-3 ps-2">
-                        <a href="{{ url('products/1') }}" class="nav-item nav-link">Aluminium</a>
-                        <a href="{{ url('products/2') }}" class="nav-item nav-link">Kaca</a>
-                        <a href="{{ url('products/3') }}" class="nav-item nav-link">Stainless</a>
-                        <div class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="{{ url('products/4') }}" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Aksesoris
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                              <a class="dropdown-item" href="{{ url('products/sub/7') }}">Kunci</a>
-                              <a class="dropdown-item" href="{{ url('products/sub/8') }}">Plat</a>
-                              <a class="dropdown-item" href="{{ url('products/sub/9') }}">Siku</a>
-                              <a class="dropdown-item" href="{{ url('products/sub/10') }}">Bracket</a>
+                            <a href="{{ url('products/1') }}" class="nav-item nav-link">Aluminium</a>
+                            <a href="{{ url('products/2') }}" class="nav-item nav-link">Kaca</a>
+                            <a href="{{ url('products/3') }}" class="nav-item nav-link">Stainless</a>
+                            <div class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="{{ url('products/4') }}"
+                                    id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    Aksesoris
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a class="dropdown-item" href="{{ url('products/sub/7') }}">Kunci</a>
+                                    <a class="dropdown-item" href="{{ url('products/sub/8') }}">Plat</a>
+                                    <a class="dropdown-item" href="{{ url('products/sub/9') }}">Siku</a>
+                                    <a class="dropdown-item" href="{{ url('products/sub/10') }}">Bracket</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                         @can('only_admin')
-                          <a href={{ route('stores.create') }} class="nav-item nav-link btn btn-danger border-0 text-light rounded mx-3">Admin</a>
+                            <a href={{ route('stores.create') }}
+                                class="nav-item nav-link btn btn-danger border-0 text-light rounded mx-3">Admin</a>
                         @endcan
                     </div>
 
                     @if (Route::has('login'))
                         <div class="hidden fixed top-0 right-0 px-6 py-1 sm:block">
                             @auth
-                                <form action={{url("logout")}} method="POST" class="ms-auto">
+                                <form action={{ url('logout') }} method="POST" class="ms-auto">
                                     @csrf
                                     <button type="submit" class="btn btn-light text-dark rounded border-0">Logout</button>
                                 </form>
                             @endauth
                         </div>
-                    @endif  
+                    @endif
                 </div>
             </nav>
         </div>

@@ -19,7 +19,7 @@ body {
 .wrapper {
     position: relative;
     width: 100%;
-    max-width: 1366px;
+    max-width: 1345px;
     margin: 0 auto;
     background: #ffffff;
 }
@@ -246,6 +246,7 @@ body {
         padding: 20px;
         /* max-height: 84px;  */
     }
+
     .nav-bar .navbar {
         padding: 15px;
     }
@@ -420,6 +421,7 @@ body {
 
 .carousel .carousel-caption {
     position: absolute;
+    text-shadow: 6px 6px 0px rgba(0, 0, 0, 0.2);
     top: 0;
     bottom: 0;
     display: flex;
@@ -599,6 +601,11 @@ body {
     color: #030f27;
 }
 
+.alert {
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 /*******************************/
 /*********** FAQs CSS **********/
 /*******************************/
@@ -702,6 +709,20 @@ body {
     background: #ffffff;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-top: none;
+}
+
+.catalog-img {
+    width: inherit;
+    max-height: 25vw;
+    object-fit: cover;
+}
+
+.catalog-item {
+    height: 100%;
+}
+
+.catalog-text {
+    height: 150px;
 }
 
 /*******************************/
@@ -969,6 +990,32 @@ body {
     border-radius: 10px;
 }
 
+.btn-color {
+    height: 40px;
+    width: 40px;
+    border-radius: 12%;
+    border: 2px solid black;
+}
+
+.btn-color:hover {
+    height: 40px;
+    width: 40px;
+    border-radius: 12%;
+    border: 2px solid #fdbe33;
+}
+
+.hide {
+    align-self: top;
+    display: none;
+    text-align: center;
+    align-items: center;
+}
+
+.btn-color:focus+.hide {
+    display: contents;
+}
+
+
 .catalog .catalog-overlay {
     position: absolute;
     width: 100%;
@@ -1040,11 +1087,19 @@ body {
     font-size: 1rem;
 }
 
+.sub-category-list a:hover {
+    text-decoration: none;
+    color: #fdbe33;
+    font-size: 1rem;
+    background-color: #fdbe33;
+    transition: 0.1s ease-in-out;
+}
+
 .category-list {
     text-align: center;
     margin: 0rem 1.5rem;
     padding: 8px;
-    align-items:center;
+    align-items: center;
 }
 
 
@@ -1063,10 +1118,6 @@ body {
     padding: 7px 12px;
 }
 
-.categories h2:hover {
-    background-color: #fdbe33;
-    transition: 0.5s ease-in-out;
-}
 
 .catalog .priceStock {
     border-top: 1px solid #030f27;

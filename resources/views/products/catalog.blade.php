@@ -10,9 +10,9 @@
                         <h1 class="text-end mt-2 px-4">Kategori</h1>
                     </div>
                     <hr />
-                    <ul class="d-flex justify-content-center mx-4">
+                    <ul class="d-flex text-center justify-content-center align-items-center mx-4">
                         @foreach ($categories as $category)
-                            <li class="text-center category-list list-unstyled me-3 mt-4">
+                            <li class="text-center category-list list-unstyled me-3 mt-4" style="padding-top: 15px">
                                 <a href={{ url('products') . '/' . $category->id }}>
                                     <p>{{ $category->category_name }}</p>
                                 </a>
@@ -21,7 +21,7 @@
                     </ul>
                 </div>
                 <h2 class="text-center my-2 mx-auto mb-5 mt-5">
-                    @if (!$categoryID && $subCategoryID)
+                    @if ($subCategoryID != '')
                         {{ $subCategories->find($subCategoryID)->sub_category }}
                     @else
                         {{ $categories->find($categoryID)->category_name }}

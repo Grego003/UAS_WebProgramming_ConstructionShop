@@ -67,11 +67,10 @@
                         @endforeach
                     </div>
                     <div class="input-group mb-3">
-                        <label class="input-group-text" for="inputGroupSelect01">Options</label>
+                        <label class="input-group-text" for="inputGroupSelect01">Sub Kategori</label>
                         <select class="form-select" id="inputGroupSelect01" name="sub_category"
                             value="{{ old('sub_category') ?? $product->sub_category_id }}">
-                            <option>Sub Category</option>
-                            @foreach ($subCategory as $sub)
+                            @foreach ($subCategory->where('category_id', 1) as $sub)
                                 <option value="{{ $sub->id }}"
                                     {{ $sub->id == $product->sub_category_id ? 'selected' : '' }}>{{ $sub->sub_category }}
                                 </option>

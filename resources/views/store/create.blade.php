@@ -3,7 +3,8 @@
 @section('content')
     <div class="container mt-5">
         @if ($errors->any())
-            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <div class="alert alert-danger alert-dismissible fade show" role="alert" style="max-width: max-content;">
+                <p class="text-center"> ERROR! </p>
                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"><span
                         aria-hidden="true">&times;</span></button>
                 <ul>

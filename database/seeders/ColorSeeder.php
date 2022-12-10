@@ -29,9 +29,6 @@ class ColorSeeder extends Seeder
             ],
             [
                 'color_name' => 'CA',
-            ],
-            [
-                'color_name' => 'Urat Kayu Ebony',
             ]
         ];
 
