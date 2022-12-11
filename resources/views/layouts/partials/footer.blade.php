@@ -6,7 +6,7 @@
                 <div class="footer-contact">
                     <h2>Office Contact</h2>
                     <p><i class="fa fa-phone-alt"></i>089676761828</p>
-                    <p><i class="fa fa-envelope"></i>leeman@gmail.com</p>
+                    <p><i class="fa fa-envelope"></i>helmy.nusakaryautama@gmail.com</p>
                 </div>
             </div>
             <div class="col-md-6 col-lg-3">

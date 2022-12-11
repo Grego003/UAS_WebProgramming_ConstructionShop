@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="top-bar-text">
                                     <h3>Email Us</h3>
-                                    <p>leeman@gmail.com</p>
+                                    <p>helmy.nusakaryautama@gmail.com</p>
                                 </div>
                             </div>
                         </div>

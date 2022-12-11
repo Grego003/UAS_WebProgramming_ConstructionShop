@@ -60,7 +60,7 @@
                         <div class="feature-item">
                             <div class="feature-text">
                                 <h3 class="text-center">Aluminium</h3>
-                                <p class="text-center">Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non
+                                <p class="text-center">Bahan aluminium yang berkualitas tentunya kami tawarkan untuk mendukung pembuatan berbagai macam produk barang eksterior maupun interior.
                                 </p>
                             </div>
                         </div>
@@ -69,7 +69,7 @@
                         <div class="feature-item">
                             <div class="feature-text">
                                 <h3 class="text-center">Kaca</h3>
-                                <p class="text-center">Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non
+                                <p class="text-center">Kaca dengan tipe grade A kami tawarkan dengan ukuran sesuai dengan yang diinginkan, adapun best seller dari toko kami adalah pembuatan kaca kanopi dan etalase.
                                 </p>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
                         <div class="feature-item">
                             <div class="feature-text">
                                 <h3 class="text-center">Stainless</h3>
-                                <p class="text-center">Lorem ipsum dolor sit amet elit. Phasus nec pretim ornare velit non
+                                <p class="text-center">Bahan stainless yang diperuntukan untuk pembuatan berbagai macam produk barang eksterior maupun interior anti karat. 
                                 </p>
                             </div>
                         </div>
@@ -101,7 +101,7 @@
                             <div class="card wow fadeInLeft" data-wow-delay="0.1s">
                                 <div class="card-header">
                                     <a class="card-link collapsed" data-bs-toggle="collapse" href="#collapseOne">
-                                        Bagaimana cara memesan barang di website ini?
+                                        Bagaimana saya bisa membeli barang secara langsung melalui website ini? 
                                     </a>
                                 </div>
                                 <div id="collapseOne" class="collapse" data-parent="#accordion-1">
@@ -116,26 +116,24 @@
                             <div class="card wow fadeInLeft" data-wow-delay="0.2s">
                                 <div class="card-header">
                                     <a class="card-link collapsed" data-bs-toggle="collapse" href="#collapseTwo">
-                                        Lorem ipsum dolor sit amet?
+                                        Apakah saya bisa datang ke toko langsung ketika saya membeli barang lewat tokopedia?
                                     </a>
                                 </div>
                                 <div id="collapseTwo" class="collapse" data-parent="#accordion-1">
                                     <div class="card-body">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi.
-                                        Curabitur facilisis ornare velit non.
+                                        Kami melayani pemesanan baik itu datang langsung di tempat atau melalui platform e commerce kami tetapi hanya berupa aksesoris, untuk pemesanan barang yang dapat di ambil di toko bisa melalui WhatsApp di nomor 089676761828.
                                     </div>
                                 </div>
                             </div>
                             <div class="card wow fadeInLeft" data-wow-delay="0.3s">
                                 <div class="card-header">
                                     <a class="card-link collapsed" data-bs-toggle="collapse" href="#collapseThree">
-                                        Lorem ipsum dolor sit amet?
+                                        Dimanakah alamat lokasi toko Nusa Karya utama apakah ada cabang lain?
                                     </a>
                                 </div>
                                 <div id="collapseThree" class="collapse" data-parent="#accordion-1">
                                     <div class="card-body">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi.
-                                        Curabitur facilisis ornare velit non.
+                                        Kami hanya beroperasi di  1, Jl. H. Nawi Raya No.1, RT.1/RW.2, Gandaria Utara, Kec. Cilandak, Kota Jakarta Selatan, Daerah Khusus Ibukota Jakarta 12420. Untuk cabang lain silahkan di tunggu kedepannya.
                                     </div>
                                 </div>
                             </div>
@@ -146,39 +144,37 @@
                             <div class="card wow fadeInRight" data-wow-delay="0.1s">
                                 <div class="card-header">
                                     <a class="card-link collapsed" data-bs-toggle="collapse" href="#collapseSix">
-                                        Lorem ipsum dolor sit amet?
+                                        Bagaimana cara memastikan bahwa barang yang diantar ke tempat saya akan aman dan tanpa kerusakan?
                                     </a>
                                 </div>
                                 <div id="collapseSix" class="collapse" data-parent="#accordion-2">
                                     <div class="card-body">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi.
-                                        Curabitur facilisis ornare velit non.
+                                        Toko kami menyediakan kendaraan khusus untuk mengantarkan barang-barang customer ke tempat tujuan, kami akan memastikan keamanan, kualitas dan tanggung jawab penuh pada barang kami jika terjadi hal-hal yang diluar dugaan. Maka kami dapat menjamin barang pesanan akan sampai di tempat tujuan dengan selamat.
                                     </div>
                                 </div>
                             </div>
                             <div class="card wow fadeInRight" data-wow-delay="0.2s">
                                 <div class="card-header">
                                     <a class="card-link collapsed" data-bs-toggle="collapse" href="#collapseSeven">
-                                        Lorem ipsum dolor sit amet?
+                                        Apakah saya bisa menukar produk yang telah saya pesan sebelumnya?
+
                                     </a>
                                 </div>
                                 <div id="collapseSeven" class="collapse" data-parent="#accordion-2">
                                     <div class="card-body">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi.
-                                        Curabitur facilisis ornare velit non.
+                                        Pemesanan barang yang sudah fix tentu saja akan menjadi prioritas bagi kami, kami hanya bisa mengganti/menukar produk dengan ketentuan barang pesanan yang belum dibuat atau kendala seperti bahan yang kurang/habis. Kami tidak bisa melayani penukaran apabila produk sudah selesai dibuat sesuai pesanan. Maka kami menyarankan sebelum memesan produk pastikan ukuran, bahan, dan detail-detail kecil dapat disampaikan ketika pemesanan agar terhindar dari hal seperti ini.
                                     </div>
                                 </div>
                             </div>
                             <div class="card wow fadeInRight" data-wow-delay="0.3s">
                                 <div class="card-header">
                                     <a class="card-link collapsed" data-bs-toggle="collapse" href="#collapseEight">
-                                        Lorem ipsum dolor sit amet?
+                                        Apakah toko ini menyediakan pemasangan atau instalasi langsung di tempat pembeli?
                                     </a>
                                 </div>
                                 <div id="collapseEight" class="collapse" data-parent="#accordion-2">
                                     <div class="card-body">
-                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi.
-                                        Curabitur facilisis ornare velit non.
+                                        Ya, kami menyediakan instalasi langsung karena itu merupakan fokus dari usaha kami yaitu pemasangan secara langsung karena kami sangat mengutamakan kepuasan pelanggan dari awal konsultasi sampai dengan pemasangan. 
                                     </div>
                                 </div>
                             </div>
