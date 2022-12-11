@@ -114,7 +114,7 @@ class StoreController extends Controller
                 'category_id' => 'required',
                 'length' => 'regex:/^(([0-9]*)(\.([0-9]+))?)$/',
                 'sub_category' => 'required',
-                'image' => 'required|image|file|max:1024'
+                'image' => 'image|file|max:1024'
             ]);
             $product = new Product();
             $product->product_name = $request->product_name;

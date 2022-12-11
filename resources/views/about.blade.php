@@ -20,7 +20,7 @@
                 </div>
                 <div class="about-text">
                     <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto optio ducimus odit magni, esse illum adipisci? Enim ab, veniam numquam illo dolore id atque nemo, commodi quisquam nostrum, obcaecati eligendi. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        Kami yakin perusahaan kami selama lebih dari 20 tahun dalam bidang konstruksi dapat menjadi jaminan bahwa kami adalah ahlinya. Kami meberikan respon yang poitif dan cepat, harga yang bersaing, dan sangat berpengalaman dalam menangani proses pemasangan barang.
                     </p>
                     <a class="btn" href="whatsapp://send?text=Halo!&phone=+6289676761828">Contact Us<br><b>WhatsApp</b></a>
                 </div>
