@@ -1,11 +1,14 @@
 <?php
 
-use App\Http\Controllers\StoreController;
-use App\Models\Product;
-use App\Http\Controllers\ProductController;
-use App\Models\Products;
 use App\Models\User;
+use App\Models\Review;
+use App\Models\Product;
+use App\Models\Products;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\StoreController;
+use App\Http\Controllers\ReviewController;
+use App\Http\Controllers\ProductController;
+use App\Http\Middleware\XssSanitizer;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,19 +21,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
 Route::get('/', function () {
     return redirect('/dashboard');
 });
-
 
 Route::get('/admin/login/{name}/send', function ($name) {
     $login = User::where('name', $name)->get();
     return view('demo');
 });
 Route::get('/dashboard', function () {
-    return view('demo');
+    $reviews = Review::limit(3)->orderBy('id', 'desc')->get();
+    return view('demo', ['reviews' => $reviews]);
 });
+
+Route::post('review', [ReviewController::class, 'store']);
+Route::delete('review/{id}', [ReviewController::class, 'destroy']);
 
 Route::resource('stores', StoreController::class);
 

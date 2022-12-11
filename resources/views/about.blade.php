@@ -16,14 +16,11 @@
             <div class="col-lg-7 col-md-6">
                 <div class="section-header text-left">
                     <p>Welcome to Nusa Karya Utama Website</p>
-                    <h2>40 Years Experience</h2>
+                    <h2>20 Years Experience</h2>
                 </div>
                 <div class="about-text">
                     <p>
-                        Perusahaan konstruksi terbaik sejagat raya milik Lord Paduka Bapak Renfred
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto optio ducimus odit magni, esse illum adipisci? Enim ab, veniam numquam illo dolore id atque nemo, commodi quisquam nostrum, obcaecati eligendi. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                     </p>
                     <a class="btn" href="whatsapp://send?text=Halo!&phone=+6289676761828">Contact Us<br><b>WhatsApp</b></a>
                 </div>
@@ -32,5 +29,72 @@
     </div>
 </div>
 <!-- About End -->
+{{-- Review --}}
+
+<h2 class="text-center wow fadeInUp" data-wow-delay="0.1s">Review Us</h2>
+<div class="form-review d-flex justify-content-center wow fadeInUp" data-wow-delay="0.2s">
+    <form action="/review" class="col-lg-8" method="post">
+        @csrf
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control @error('name') is-invalid @enderror" id="floatingInput" name="name" placeholder="Name" value="{{old('name')}}">
+            <label for="floatingInput">Name</label>
+            @error('name')
+            <div  class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+        <div class="form-floating mb-3">
+            <input type="email" class="form-control @error('email') is-invalid @enderror" id="floatingInput" name="email" placeholder="email" value="{{old('email')}}">
+            <label for="floatingInput">Email</label>
+            @error('email')
+            <div  class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+        <div class="mb-3">
+            <input type="hidden" id="review" name="review" value="">
+            <span class="d-block mb-2">Review</span>
+            <h4 class="d-inline me-2 text-warning" onclick="star(event)"  data-id="1"><i id="1" class="bi bi-star"></i></h4>
+            <h4 class="d-inline me-2 text-warning" onclick="star(event)"  data-id="2"><i id="2" class="bi bi-star"></i></h4>
+            <h4 class="d-inline me-2 text-warning" onclick="star(event)"  data-id="3"><i id="3" class="bi bi-star"></i></h4>
+            <h4 class="d-inline me-2 text-warning" onclick="star(event)"  data-id="4"><i id="4" class="bi bi-star"></i></h4>
+            <h4 class="d-inline me-2 text-warning" onclick="star(event)"  data-id="5"><i id="5" class="bi bi-star"></i></h4>
+            @error('review')
+                <span class="text-danger d-block">{{ $message }}</span>
+            @enderror
+        </div>
+        <div class="form-floating">
+            <textarea class="form-control @error('comment') is-invalid @enderror" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" name="comment">{{old('comment')}}</textarea>
+            <label for="floatingTextarea2">Comments</label>
+            @error('comment')
+            <div  class="invalid-feedback">
+                {{ $message }}
+            </div>
+            @enderror
+        </div>
+          <button type="submit" class="btn btn-warning m-auto mt-2">Submit</button>
+    </form>
+</div>
 </div>
 @endsection
+
+<script>
+    function star(ev){
+        ev.preventDefault();
+        var rate = ev.currentTarget.getAttribute('data-id');
+        var input = document.getElementById('review');
+        input.value = rate;
+        for(var i = 1; i <= 5; i++){
+            var stars = document.getElementById(i);
+            stars.classList.remove("bi-star-fill")
+            stars.classList.add("bi-star")
+        }
+        for(var i = 1; i <= rate; i++){
+            var stars = document.getElementById(i);
+            stars.classList.toggle("bi-star")
+            stars.classList.add("bi-star-fill")
+        }
+    }
+</script>
