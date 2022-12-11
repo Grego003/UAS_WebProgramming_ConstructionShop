@@ -23,6 +23,17 @@
                     @csrf
                     @method('PUT')
                     <input type="hidden" name="category_id" value="2">
+                    <div class="mb-3">
+                        <label for="product_name" class="form-label">Nama Produk</label>
+                        <input type="text" class="form-control @error('product_name') is-invalid @enderror"
+                            id="product_name" placeholder="Nama Produk" name="product_name"
+                            value="{{ old('product_name') ?? $product->product_name }}" required>
+                        @error('product_name')
+                            <div class="invalid-feedback">
+                                {{ $message }}
+                            </div>
+                        @enderror
+                    </div>
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="inputGroupFile01">Image</label>
                         <input type="file" class="form-control @error('img') is-invalid @enderror" id="inputGroupFile01"

@@ -119,22 +119,22 @@ class StoreController extends Controller
             $product->color()->attach($request->color);
         } else if ($request->category_id == 2) {
             $this->validate($request, [
+                'product_name' => 'required|max:255',
                 'img' => 'required|image|file|max:1024',
                 'category_id' => 'required',
             ]);
             $product = new Product();
+            $product->product_name = $request->product_name;
             $product->category_id = $request->category_id;
             $path = $request->file('img')->storePublicly('asset', 'public');
             $product->src_img = $path;
             $product->save();
         } else if ($request->category_id == 3) {
             $this->validate($request, [
-                'product_name' => 'required|max:255',
                 'img' => 'image|file|max:1024',
                 'category_id' => 'required',
             ]);
             $product = new Product();
-            $product->product_name = $request->product_name;
             $product->category_id = $request->category_id;
             if ($request->img) {
                 $path = $request->file('img')->storePublicly('asset', 'public');
