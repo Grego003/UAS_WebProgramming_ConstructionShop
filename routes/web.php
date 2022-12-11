@@ -4,11 +4,12 @@ use App\Models\User;
 use App\Models\Review;
 use App\Models\Product;
 use App\Models\Products;
+use App\Http\Middleware\XssSanitizer;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\StoreController;
 use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ProductController;
-use App\Http\Middleware\XssSanitizer;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,13 @@ use App\Http\Middleware\XssSanitizer;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+Route::get('generate', [StoreController::class, 'generate']);
+
+Route::get('/foo', function () {
+    Artisan::call('storage:link');
+});
+
 
 Route::get('/', function () {
     return redirect('/dashboard');

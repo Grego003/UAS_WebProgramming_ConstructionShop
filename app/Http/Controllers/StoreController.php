@@ -11,6 +11,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use App\Models\User;
+use Illuminate\Support\Facades\File;
 
 class StoreController extends Controller
 {
@@ -39,6 +40,15 @@ class StoreController extends Controller
             "subCategoryID" => $subCategoryID,
             "colors" => $colors
         ]);
+    }
+
+    public function generate()
+    {
+        File::link(
+            storage_path('storage'),
+            public_path('storage')
+        );
+        return redirect()->back();
     }
 
     public function index_sub($subCategoryID = '')
@@ -96,6 +106,7 @@ class StoreController extends Controller
         if (!Gate::allows('only_admin')) {
             abort(403);
         }
+
         if ($request->category_id == 1) {
             $this->validate($request, [
                 'product_name' => 'required|max:255',
@@ -103,7 +114,7 @@ class StoreController extends Controller
                 'category_id' => 'required',
                 'length' => 'regex:/^(([0-9]*)(\.([0-9]+))?)$/',
                 'sub_category' => 'required',
-                'image' => 'required|image|file|max:1024'
+                'image' => 'image|file|max:1024'
             ]);
             $product = new Product();
             $product->product_name = $request->product_name;
@@ -120,21 +131,21 @@ class StoreController extends Controller
         } else if ($request->category_id == 2) {
             $this->validate($request, [
                 'img' => 'required|image|file|max:1024',
+                'product_name' => 'required',
                 'category_id' => 'required',
             ]);
             $product = new Product();
             $product->category_id = $request->category_id;
+            $product->product_name = $request->product_name;
             $path = $request->file('img')->storePublicly('asset', 'public');
             $product->src_img = $path;
             $product->save();
         } else if ($request->category_id == 3) {
             $this->validate($request, [
-                'product_name' => 'required|max:255',
-                'img' => 'image|file|max:1024',
+                'img' => 'required|image|file|max:1024',
                 'category_id' => 'required',
             ]);
             $product = new Product();
-            $product->product_name = $request->product_name;
             $product->category_id = $request->category_id;
             if ($request->img) {
                 $path = $request->file('img')->storePublicly('asset', 'public');
@@ -147,7 +158,8 @@ class StoreController extends Controller
                 'img' => 'image|file|max:1024',
                 'category_id' => 'required',
                 'description' => 'max:300',
-                'link_tokopedia' => 'regex:(?<=\/)[\w\-.]+(?=(\?|(\s*)$|(\/)$))'
+                'link_tokopedia' => 'regex:(?<=\/)[\w\-.]+(?=(\?|(\s*)$|(\/)$))',
+                'link_shopee' => 'regex:(?<=\/)[\w\-.]+(?=(\?|(\s*)$|(\/)$))'
             ]);
             // dd($request);
             $product = new Product();
@@ -251,11 +263,13 @@ class StoreController extends Controller
             $product->color()->attach($request->color);
         } else if ($request->category_id == 2) {
             $this->validate($request, [
-                'img' => 'required|image|file|max:1024',
+                'img' => 'image|file|max:1024',
+                'product_name' => 'required',
                 'category_id' => 'required',
             ]);
             $product = Product::findOrFail($id);
             $product->category_id = $request->category_id;
+            $product->product_name = $request->product_name;
             if ($request->img) {
                 $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
@@ -264,12 +278,10 @@ class StoreController extends Controller
             Alert::success('Success', 'Product Edited Successfully');
         } else if ($request->category_id == 3) {
             $this->validate($request, [
-                'product_name' => 'required|max:255',
                 'img' => 'image|file|max:1024',
                 'category_id' => 'required',
             ]);
             $product = Product::findOrFail($id);
-            $product->product_name = $request->product_name;
             $product->category_id = $request->category_id;
             if ($request->img) {
                 $path = $request->file('img')->storePublicly('asset', 'public');

@@ -10,7 +10,7 @@
                         <h1 class="text-end mt-2 me-3">Kategori</h1>
                     </div>
                     <hr />
-                    <ul class="d-flex justify-content-center">
+                    <ul class="d-flex flex-wrap justify-content-center">
                         @foreach ($categories as $category)
                             <li class="text-center category-list list-unstyled me-3 mt-4">
                                 <a href={{ url('products') . '/' . $category->id }}>
@@ -64,7 +64,7 @@
                 @endif
                 <div class="row catalog-page">
                     @foreach ($products as $product)
-                        @if ($categoryID == 2)
+                        @if ($categoryID == 3)
                             @include('cards.kacaCard')
                         @else
                             @include('cards.mainCard')

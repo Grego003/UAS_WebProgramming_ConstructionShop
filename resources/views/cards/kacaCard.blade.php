@@ -3,6 +3,7 @@
         <div class="catalog-img">
             <img src="{{ Storage::url($product->src_img) }}" alt="img">
             <div class="catalog-overlay">
+                <p class="fs-4 fw-bold">{{ $product->product_name }}</p>
                 <p> {{ $product->description }}</p>
             </div>
         </div>
