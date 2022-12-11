@@ -33,7 +33,6 @@ Route::get('/', function () {
     return redirect('/dashboard');
 });
 
-
 Route::get('/admin/login/{name}/send', function ($name) {
     $login = User::where('name', $name)->get();
     return view('demo');

@@ -114,7 +114,7 @@ class StoreController extends Controller
                 'category_id' => 'required',
                 'length' => 'regex:/^(([0-9]*)(\.([0-9]+))?)$/',
                 'sub_category' => 'required',
-                'image' => 'image|file|max:1024'
+                'image' => 'required|image|file|max:1024'
             ]);
             $product = new Product();
             $product->product_name = $request->product_name;
@@ -157,14 +157,18 @@ class StoreController extends Controller
                 'product_name' => 'required|max:255',
                 'img' => 'image|file|max:1024',
                 'category_id' => 'required',
+                'stock' => 'max:100000000000|required',
+                'harga' => 'max:100000000000|required',
                 'description' => 'max:300',
-                'link_tokopedia' => 'regex:(?<=\/)[\w\-.]+(?=(\?|(\s*)$|(\/)$))',
-                'link_shopee' => 'regex:(?<=\/)[\w\-.]+(?=(\?|(\s*)$|(\/)$))'
+                'sub_category' => 'required',
+                'link_shopee' => 'url',
+                'link_tokopedia' => 'url',
             ]);
             // dd($request);
             $product = new Product();
             $product->product_name = $request->product_name;
             $product->category_id = $request->category_id;
+            $product->sub_category_id = $request->sub_category;
             if ($request->img) {
                 $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
@@ -179,7 +183,7 @@ class StoreController extends Controller
             return redirect();
         }
         Alert::success('Success', 'New product added successfully');
-        return redirect()->back();
+        return redirect('/products/' . $request->category_id);
     }
 
     /**
@@ -205,6 +209,8 @@ class StoreController extends Controller
             abort(403);
         }
         $product = Product::findOrFail($id);
+        $subCategory = SubCategory::all();
+        $colors = Color::all();
         $mycolor = [];
         $i = 0;
         foreach ($product->color as $col) {
@@ -213,15 +219,13 @@ class StoreController extends Controller
         }
 
         if ($product->category_id == 1) {
-            $subCategory = SubCategory::all();
-            $colors = Color::all();
             return view('edit.aluminium', ['product' => $product, 'subCategory' => $subCategory, 'colors' => $colors, 'mycolor' => $mycolor]);
         } else if ($product->category_id == 2) {
             return view('edit.kaca', ['product' => $product]);
         } else if ($product->category_id == 3) {
             return view('edit.stainless', ['product' => $product]);
         } else if ($product->category_id == 4) {
-            return view('edit.accesories', ['product' => $product]);
+            return view('edit.accesories', ['product' => $product, 'subCategory' => $subCategory]);
         }
     }
 
@@ -245,7 +249,6 @@ class StoreController extends Controller
                 'length' => 'regex:/^(([0-9]*)(\.([0-9]+))?)$/',
                 'sub_category' => 'required',
                 'image' => 'image|file|max:1024',
-                'link_tokopedia' => 'regex:(?<=\/)[\w\-.]+(?=(\?|(\s*)$|(\/)$))'
             ]);
             $product = Product::findOrFail($id);
             $product->product_name = $request->product_name;
@@ -295,11 +298,16 @@ class StoreController extends Controller
                 'img' => 'image|file|max:1024',
                 'category_id' => 'required',
                 'description' => 'max:300',
+                'stock' => 'max:100000000000|required',
+                'harga' => 'max:100000000000|required',
+                'link_shopee' => 'url',
+                'link_tokopedia' => 'url',
             ]);
             // dd($request);
             $product = Product::findOrFail($id);
             $product->product_name = $request->product_name;
             $product->category_id = $request->category_id;
+            $product->sub_category_id = $request->sub_category;
             if ($request->img) {
                 $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
@@ -312,9 +320,9 @@ class StoreController extends Controller
             $product->save();
             Alert::success('Success', 'Product Edited Successfully');
         } else {
-            abort(404);
+            return redirect();
         }
-        return redirect('/stores');
+        return redirect('/products/' . $request->category_id);
     }
 
     /**
