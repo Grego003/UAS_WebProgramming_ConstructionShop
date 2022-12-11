@@ -24,7 +24,7 @@
                         {{ $categories->find($categoryID)->category_name }}
                     @endif
                 </h2>
-                @if ($categoryID == 1 || $categoryID == 4 || !$subCategoryID == '')
+                @if ($categoryID == 1 || !$subCategoryID == '')
                     <div class="d-flex justify-content-center">
                         <li class="text-center categories list-unstyled">
                             <h4>Sub-Kategori</h4>

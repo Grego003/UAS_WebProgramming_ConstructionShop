@@ -160,7 +160,6 @@ class StoreController extends Controller
                 'stock' => 'max:100000000000|required',
                 'harga' => 'max:100000000000|required',
                 'description' => 'max:300',
-                'sub_category' => 'required',
                 'link_shopee' => 'url',
                 'link_tokopedia' => 'url',
             ]);
@@ -168,7 +167,6 @@ class StoreController extends Controller
             $product = new Product();
             $product->product_name = $request->product_name;
             $product->category_id = $request->category_id;
-            $product->sub_category_id = $request->sub_category;
             if ($request->img) {
                 $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
@@ -176,7 +174,7 @@ class StoreController extends Controller
             $product->description = $request->description;
             $product->stock = $request->stock;
             $product->harga = $request->harga;
-            $product->link_shopee = $request->link_shoope;
+            $product->link_shopee = $request->link_shopee;
             $product->link_tokopedia = $request->link_tokopedia;
             $product->save();
         } else {
@@ -307,7 +305,6 @@ class StoreController extends Controller
             $product = Product::findOrFail($id);
             $product->product_name = $request->product_name;
             $product->category_id = $request->category_id;
-            $product->sub_category_id = $request->sub_category;
             if ($request->img) {
                 $path = $request->file('img')->storePublicly('asset', 'public');
                 $product->src_img = $path;
@@ -315,7 +312,7 @@ class StoreController extends Controller
             $product->description = $request->description;
             $product->stock = $request->stock;
             $product->harga = $request->harga;
-            $product->link_shopee = $request->link_shoope;
+            $product->link_shopee = $request->link_shopee;
             $product->link_tokopedia = $request->link_tokopedia;
             $product->save();
             Alert::success('Success', 'Product Edited Successfully');

@@ -101,19 +101,7 @@
                             <a href="{{ url('products/1') }}" class="nav-item nav-link">Aluminium</a>
                             <a href="{{ url('products/2') }}" class="nav-item nav-link">Kaca</a>
                             <a href="{{ url('products/3') }}" class="nav-item nav-link">Stainless</a>
-                            <div class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="{{ url('products/4') }}"
-                                    id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    Aksesoris
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <a class="dropdown-item" href="{{ url('products/sub/7') }}">Kunci</a>
-                                    <a class="dropdown-item" href="{{ url('products/sub/8') }}">Plat</a>
-                                    <a class="dropdown-item" href="{{ url('products/sub/9') }}">Siku</a>
-                                    <a class="dropdown-item" href="{{ url('products/sub/10') }}">Bracket</a>
-                                </div>
-                            </div>
+                            <a href="{{ url('products/4') }}" class="nav-item nav-link">Aksesoris</a>
                         </div>
                         @can('only_admin')
                             <a href={{ route('stores.create') }}

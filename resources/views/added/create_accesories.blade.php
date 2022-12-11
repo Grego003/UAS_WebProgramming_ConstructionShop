@@ -23,20 +23,6 @@
                 </div>
             @enderror
         </div>
-        <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">Sub Kategori</label>
-            @error('img')
-                <div class="invalid-feedback">
-                    {{ $message }}
-                </div>
-            @enderror
-            <select class="form-select @error('sub_category') is-invalid @enderror" id="inputGroupSelect01"
-                name="sub_category">
-                @foreach ($subCategory->where('category_id', 4) as $sub)
-                    <option value="{{ $sub->id }}">{{ $sub->sub_category }}</option>
-                @endforeach
-            </select>
-        </div>
         <div class="form-floating mb-3">
             <textarea class="form-control @error('description') is-invalid @enderror" placeholder="Deskripsi" id="floatingTextarea2"
                 style="height: 100px" name="description">{{ old('description') }}</textarea>

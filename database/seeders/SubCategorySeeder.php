@@ -49,23 +49,7 @@ class SubCategorySeeder extends Seeder
             [
                 'sub_category' => "Stopper Pintu",
                 'category_id' => '1'
-            ],
-            [
-                'sub_category' => "Kunci",
-                'category_id' => '4'
-            ],
-            [
-                'sub_category' => "Siku",
-                'category_id' => '4'
-            ],
-            [
-                'sub_category' => "Plat",
-                'category_id' => '4'
-            ],
-            [
-                'sub_category' => "Bracket",
-                'category_id' => '4'
-            ],
+            ]
         ];
 
         SubCategory::insert($categories_data);
