@@ -5,15 +5,15 @@
     <div class="categories container-fluid justify-content-center">
         <div>
             <div class="mt-5 d-flex flex-column justify-content-center">
-                <div class="nav-categories row justify-content-around border">
+                <div class="nav-categories row justify-content-around">
                     <div class="col-md-5 flex-start align-items-center">
                         <h1 class="text-start mt-2 px-4">Kategori</h1>
                     </div>
                     <ul class="col-md-5 d-flex flex-wrap text-center justify-content-around align-items-center">
                         @foreach ($categories as $category)
-                        <a class="text-decoration-none me-3 mt-3 text-white" href={{ url('products') . '/' . $category->id }}>
-                            <small class="fs-6">{{ $category->category_name }}</small>
-                        </a>
+                            <a class="category-list me-3 mt-3" href={{ url('products') . '/' . $category->id }}>
+                                {{ $category->category_name }}
+                            </a>
                         @endforeach
                     </ul>
                 </div>
