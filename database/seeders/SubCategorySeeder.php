@@ -19,7 +19,11 @@ class SubCategorySeeder extends Seeder
 
         $categories_data = [
             [
-                'sub_category' => "Kusen",
+                'sub_category' => "Kusen 3",
+                'category_id' => '1'
+            ],
+            [
+                'sub_category' => "Kusen 4",
                 'category_id' => '1'
             ],
             [
@@ -27,7 +31,7 @@ class SubCategorySeeder extends Seeder
                 'category_id' => '1'
             ],
             [
-                'sub_category' => "Jendela Sliding",
+                'sub_category' => "Sliding Jendela",
                 'category_id' => '1'
             ],
             [
@@ -35,11 +39,15 @@ class SubCategorySeeder extends Seeder
                 'category_id' => '1'
             ],
             [
-                'sub_category' => "Pintu Lipat",
+                'sub_category' => "Bahan Pintu Lipat",
                 'category_id' => '1'
             ],
             [
-                'sub_category' => "Pintu Stopper",
+                'sub_category' => "Pintu Swing",
+                'category_id' => '1'
+            ],
+            [
+                'sub_category' => "Stopper Pintu",
                 'category_id' => '1'
             ],
             [
